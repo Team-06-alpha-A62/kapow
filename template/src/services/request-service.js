@@ -14,13 +14,25 @@ export const loadTrending = async () => {
 };
 
 export const loadSingleGif = async id => {
-  const response = await fetch(`api.giphy.com/v1/gifs/${id}?api_key=${API_KEY}`);
+  const response = await fetch(
+    `https://api.giphy.com/v1/gifs/${id}?api_key=${API_KEY}`
+  );
   const { data } = await response.json();
   return data;
-}
+};
 
 export const loadSearchGifs = async (searchTerm = '') => {
-  const response = await fetch(`api.giphy.com/v1/gifs/search?api_key=${API_KEY}&q=${searchTerm}`);
+  const response = await fetch(
+    `https://api.giphy.com/v1/gifs/search?api_key=${API_KEY}&q=${searchTerm}`
+  );
   const { data } = await response.json();
   return data;
-}
+};
+
+export const loadRandomGif = async () => {
+  const response = await fetch(
+    `https://api.giphy.com/v1/gifs/random?api_key=${API_KEY}`
+  );
+  const { data } = await response.json();
+  return data;
+};
