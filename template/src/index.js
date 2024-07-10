@@ -7,6 +7,6 @@ document.addEventListener('DOMContentLoaded', () => {
       loadPage(event.target.getAttribute('data-page'));
     }
 
-    loadPage(HOME);
   });
+  loadPage(HOME);
 });
