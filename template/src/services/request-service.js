@@ -9,5 +9,6 @@ export const loadTrending = async () => {
     `https://api.giphy.com/v1/gifs/trending?api_key=${API_KEY}`
   );
   const trending = await response.json();
+  console.log(trending.data);
   return trending.data;
 };
