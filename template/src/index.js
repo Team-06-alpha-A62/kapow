@@ -1,3 +1,4 @@
+import { HOME } from './common/constants.js';
 import { loadPage } from './events/navigation-events.js';
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -5,5 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (event.target.classList.contains('nav-link')) {
       loadPage(event.target.getAttribute('data-page'));
     }
+
+    loadPage(HOME);
   });
 });

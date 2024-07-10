@@ -7,6 +7,9 @@ import {
   CONTAINER_SELECTOR,
 } from '../common/constants.js';
 
+import { toHomeView } from '../views/home-view.js';
+import { toTrendingGifsView } from '../views/trending-view.js';
+
 export const loadPage = (page = '') => {
   switch (page) {
     case HOME:
@@ -32,4 +35,14 @@ export const loadPage = (page = '') => {
     default:
       return null;
   }
+};
+
+const renderHome = () => {
+  document.querySelector(CONTAINER_SELECTOR).innerHTML = toHomeView();
+};
+
+const renderTrending = () => {
+  const trending = requests.trendingRequest();
+  document.querySelector(CONTAINER_SELECTOR).innerHTML =
+    toTrendingGifsView(trending);
 };

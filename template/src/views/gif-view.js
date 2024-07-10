@@ -1,7 +1,7 @@
 export const toGifsView = (gifs = []) => {
-  return `<div class="gifs-container masonry trending">
+  return `<div class="gifs-container masonry">
             ${
-              gifs.map(gif => toSingleGifView(gif)).join('/n') ||
+              gifs.map(gif => toSingleGifView(gif)).join('\n') ||
               'empty array of gifs'
             }
          </div>`;
