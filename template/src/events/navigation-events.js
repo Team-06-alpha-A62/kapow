@@ -10,6 +10,7 @@ import {
 import { setActiveNav } from './helpers.js';
 import { toHomeView } from '../views/home-view.js';
 import { toTrendingGifsView } from '../views/trending-view.js';
+import { loadTrending } from '../services/request-service.js';
 
 export const loadPage = (page = '') => {
   switch (page) {
