@@ -12,5 +12,10 @@ document.addEventListener('DOMContentLoaded', () => {
       toggleFavorite(event.target.getAttribute('data-gif-id'));
     }
   });
+
+  document.querySelector('#search').addEventListener('input', event => {
+    renderSearchGifs(event.target.value);
+  });
+
   loadPage(HOME);
 });
