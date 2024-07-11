@@ -48,6 +48,8 @@ const renderHome = () => {
 
 export const renderTrending = async () => {
   const trending = await loadTrending();
+  // const users = trending.map(item => item.user || {});
+  // const avatarUrls = users.map(user => user.avatar_url || '');
 
   document.querySelector(CONTAINER_SELECTOR).innerHTML =
     toTrendingGifsView(trending);

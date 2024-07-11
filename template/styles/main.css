@@ -59,18 +59,33 @@ img {
 .gif-item:hover .overlay {
   opacity: 1;
 }
-
+.actions {
+  display: flex;
+  gap: 6px;
+  justify-content: end;
+}
 .account {
   display: flex;
-  align-items: center;
+  align-items: end;
+  align-content: center;
 }
 
+.avatar {
+  display: flex;
+  align-content: center;
+  width: 32px;
+  height: 32px;
+  margin-right: 10px;
+}
+.avatar img {
+  border-radius: 16px;
+}
 .account-name {
   font-size: 1.2em;
 }
 
 .heart-button {
-  align-self: flex-end;
+  align-self: end;
 }
 
 .heart-button img {
