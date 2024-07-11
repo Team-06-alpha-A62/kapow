@@ -78,6 +78,10 @@ img {
   align-items: center;
 }
 
+.nav-link > img {
+  cursor: pointer;
+}
+
 a.nav-link {
   display: flex;
   justify-content: space-around;

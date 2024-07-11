@@ -57,6 +57,8 @@ export const renderTrending = async () => {
     columnWidth: 256,
     gutter: 10,
   });
+
+  // document.querySelector(CONTAINER_SELECTOR).innerHTML = toTrendingGifsView(trending);
 };
 
 const renderFavorites = async () => {
