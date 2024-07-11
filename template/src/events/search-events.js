@@ -1,6 +1,6 @@
 import { CONTAINER_SELECTOR } from '../common/constants.js';
 import { loadSearchGifs } from '../services/request-service.js';
-import { toSearchGifView } from '../views/search-vew.js';
+import { toSearchGifView } from '../views/search-view.js';
 
 export const renderSearchGifs = async searchTerm => {
   const gifs = await loadSearchGifs(searchTerm);

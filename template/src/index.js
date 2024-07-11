@@ -7,8 +7,8 @@ document.addEventListener('DOMContentLoaded', () => {
     if (event.target.classList.contains('nav-link')) {
       loadPage(event.target.getAttribute('data-page'));
     }
-
-    if (event.target.classList.contains('favorite-button')) {
+    console.log(event.target);
+    if (event.target.classList.contains('favorite')) {
       toggleFavorite(event.target.getAttribute('data-gif-id'));
     }
   });

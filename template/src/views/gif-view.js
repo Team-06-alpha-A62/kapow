@@ -1,3 +1,4 @@
+import { renderFavorite } from '../events/favorites-events.js';
 export const toGifsView = (gifs = []) => {
   return `<div class="gifs-container masonry">
             ${
@@ -11,6 +12,8 @@ export const toSingleGifView = gif => {
   return `
   <div class="gif-item">
     <span>${gif.slug}</span>
-    <span><button class="favorite-button" type="button" data-gif-id="${gif.id}">♡</button></span>
+    <span class="favorite" data-gif-id="${gif.id}">
+      ${renderFavorite(gif.id)}
+    </span>
   </div>`;
 };

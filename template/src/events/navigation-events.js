@@ -13,7 +13,7 @@ import { toTrendingGifsView } from '../views/trending-view.js';
 import { loadTrending } from '../services/request-service.js';
 import { getFavorites } from '../data/favorites.js';
 import { toFavoritesGifsView } from '../views/favorites-view.js';
-
+import { loadSingleGif } from '../services/request-service.js';
 export const loadPage = (page = '') => {
   switch (page) {
     case HOME:
@@ -52,9 +52,11 @@ const renderTrending = async () => {
     toTrendingGifsView(trending);
 };
 
-const renderFavorites = () => {
-  const favorites = getFavorites();
-  console.log(favorites);
+const renderFavorites = async () => {
+  const favorites = await Promise.all(
+    getFavorites().map(favorite => loadSingleGif(favorite))
+  );
+
   document.querySelector(CONTAINER_SELECTOR).innerHTML =
     toFavoritesGifsView(favorites);
 };
