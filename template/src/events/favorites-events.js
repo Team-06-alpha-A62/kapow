@@ -6,7 +6,7 @@ import {
 
 import { FULL_HEART, EMPTY_HEART } from '../common/constants.js';
 
-import { toggleHeart } from '../views/helper-views.js';
+import { toggleHeart } from '../views/view-helpers.js';
 
 export const toggleFavorite = gifId => {
   const favorites = getFavorites();

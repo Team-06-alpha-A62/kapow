@@ -11,3 +11,13 @@ export const gifOverlayUserInfo = (gif, user) => {
   }
   return '';
 };
+
+export const determineHeight = gif => {
+  const width = parseInt(gif.images.original.width, 10);
+  const height = parseInt(gif.images.original.height, 10);
+
+  const aspectRatio = height / width;
+  const newHeight = Math.round(256 * aspectRatio);
+
+  return newHeight;
+};
