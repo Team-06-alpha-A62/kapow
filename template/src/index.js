@@ -1,6 +1,7 @@
 import { HOME } from './common/constants.js';
 import { loadPage } from './events/navigation-events.js';
 import { toggleFavorite } from './events/favorites-events.js';
+import { renderSearchGifs } from './events/search-events.js';
 
 document.addEventListener('DOMContentLoaded', () => {
   document.addEventListener('click', event => {
