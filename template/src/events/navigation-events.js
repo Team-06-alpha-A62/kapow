@@ -52,11 +52,10 @@ export const renderTrending = async () => {
   document.querySelector(CONTAINER_SELECTOR).innerHTML =
     toTrendingGifsView(trending);
 
-  const Masonry = window.Masonry;
-  new Masonry(CONTAINER_SELECTOR, {
+  new window.Masonry(CONTAINER_SELECTOR, {
     itemSelector: '.gif-item',
-    columnWidth: '.gif-item',
-    percentPosition: true,
+    columnWidth: 256,
+    gutter: 10,
   });
 };
 
@@ -67,4 +66,10 @@ const renderFavorites = async () => {
 
   document.querySelector(CONTAINER_SELECTOR).innerHTML =
     toFavoritesGifsView(favorites);
+
+  new window.Masonry(CONTAINER_SELECTOR, {
+    itemSelector: '.gif-item',
+    columnWidth: 256,
+    gutter: 10,
+  });
 };

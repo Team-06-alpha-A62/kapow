@@ -8,4 +8,9 @@ export const renderSearchGifs = async searchTerm => {
     gifs,
     searchTerm
   );
+  new window.Masonry(CONTAINER_SELECTOR, {
+    itemSelector: '.gif-item',
+    columnWidth: 256,
+    gutter: 10,
+  });
 };

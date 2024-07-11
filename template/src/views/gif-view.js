@@ -1,17 +1,14 @@
 import { renderFavorite } from '../events/favorites-events.js';
 
-const determineSizeClass = gif => {
+const determineHeight = gif => {
   const width = parseInt(gif.images.original.width, 10);
   const height = parseInt(gif.images.original.height, 10);
-  console.log(width, height);
 
-  if (width >= 512) {
-    return { sizeClass: 'large' };
-  } else {
-    return { sizeClass: 'small' };
-  }
+  const aspectRatio = height / width;
+  const newHeight = Math.round(256 * aspectRatio); // Calculate new height based on fixed width of 256px
+
+  return newHeight;
 };
-
 export const toGifsView = (gifs = []) => {
   return `<div class="gifs-container">
             ${
@@ -22,11 +19,11 @@ export const toGifsView = (gifs = []) => {
 };
 
 export const toSingleGifView = gif => {
-  const { sizeClass } = determineSizeClass(gif);
+  const newHeight = determineHeight(gif);
 
   return `
-  <div class="gif-item ${sizeClass}">
-    <img src="${gif.images.original.url}" alt="${gif.title}" class="gif-image">
+  <div class="gif-item" style="height: ${newHeight}px;">
+    <img  src="${gif.images.original.url}" alt="${gif.title}" class="gif-image">
     <div class="overlay">
       <div class="account">
         <span class="account-name">${gif.username || 'Unknown User'}</span>
