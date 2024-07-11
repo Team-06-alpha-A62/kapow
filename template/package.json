@@ -16,5 +16,8 @@
     "eslint": "^9.6.0",
     "eslint-config-google": "^0.14.0",
     "globals": "^15.8.0"
+  },
+  "dependencies": {
+    "masonry-layout": "^4.2.2"
   }
 }

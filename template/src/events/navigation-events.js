@@ -14,6 +14,7 @@ import { loadTrending } from '../services/request-service.js';
 import { getFavorites } from '../data/favorites.js';
 import { toFavoritesGifsView } from '../views/favorites-view.js';
 import { loadSingleGif } from '../services/request-service.js';
+
 export const loadPage = (page = '') => {
   switch (page) {
     case HOME:
@@ -45,11 +46,18 @@ const renderHome = () => {
   document.querySelector(CONTAINER_SELECTOR).innerHTML = toHomeView();
 };
 
-const renderTrending = async () => {
+export const renderTrending = async () => {
   const trending = await loadTrending();
 
   document.querySelector(CONTAINER_SELECTOR).innerHTML =
     toTrendingGifsView(trending);
+
+  const Masonry = window.Masonry;
+  new Masonry(CONTAINER_SELECTOR, {
+    itemSelector: '.gif-item',
+    columnWidth: '.gif-item',
+    percentPosition: true,
+  });
 };
 
 const renderFavorites = async () => {

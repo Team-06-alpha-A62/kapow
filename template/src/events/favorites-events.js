@@ -10,7 +10,7 @@ import { toggleHeart } from '../views/helper-views.js';
 
 export const toggleFavorite = gifId => {
   const favorites = getFavorites();
-  const favoriteSpan = document.querySelector(`span[data-gif-id="${gifId}"]`);
+  const favoriteSpan = document.querySelector(`div[data-gif-id="${gifId}"]`);
 
   if (favorites.includes(gifId)) {
     removeFavorite(gifId);

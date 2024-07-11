@@ -2,3 +2,74 @@ img {
   height: 70px;
   width: 120px;
 }
+
+#container {
+  flex: 1;
+  padding: 20px;
+}
+
+.gifs-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(251px, 1fr));
+  grid-auto-flow: dense;
+  grid-gap: 10px;
+  padding: 20px;
+}
+
+.gif-item {
+  position: relative;
+  overflow: hidden;
+}
+
+.gif-image {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+.large img {
+  width: 512px;
+  height: auto;
+}
+
+.small img {
+  width: 251px;
+  height: auto;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  color: white;
+  opacity: 0;
+  transition: opacity 0.3s;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 10px;
+}
+
+.gif-item:hover .overlay {
+  opacity: 1;
+}
+
+.account {
+  display: flex;
+  align-items: center;
+}
+
+.account-name {
+  font-size: 1.2em;
+}
+
+.heart-button {
+  align-self: flex-end;
+}
+
+.heart-button img {
+  width: 30px;
+  height: 30px;
+}
