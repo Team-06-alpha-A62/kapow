@@ -7,7 +7,7 @@ import {
   CONTAINER_SELECTOR,
 } from '../common/constants.js';
 
-import { setActiveNav } from './helpers.js';
+import { setActiveNav } from './event-helpers.js';
 import { toHomeView } from '../views/home-view.js';
 import { toTrendingGifsView } from '../views/trending-view.js';
 import { loadTrending } from '../services/request-service.js';

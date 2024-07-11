@@ -1,15 +1,7 @@
 import { renderFavorite } from '../events/favorites-events.js';
-import { gifOverlayUserInfo } from './helper-views.js';
+import { gifOverlayUserInfo } from './view-helpers.js';
+import { determineHeight } from './view-helpers.js';
 
-const determineHeight = gif => {
-  const width = parseInt(gif.images.original.width, 10);
-  const height = parseInt(gif.images.original.height, 10);
-
-  const aspectRatio = height / width;
-  const newHeight = Math.round(256 * aspectRatio); // Calculate new height based on fixed width of 256px
-
-  return newHeight;
-};
 export const toGifsView = (gifs = []) => {
   return `<div class="gifs-container">
             ${
