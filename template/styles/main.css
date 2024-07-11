@@ -1,3 +1,9 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Verdana, sans-serif;
+}
+
 img {
   height: 70px;
   width: 120px;
@@ -73,3 +79,72 @@ img {
   width: 30px;
   height: 30px;
 }
+.wrapper > nav {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+a.nav-link {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 0.6em 1em;
+  background-color: yellow;
+  cursor: pointer;
+  box-shadow: 2px 4px 0px black;
+  border: 2px solid;
+  border-radius: 15px;
+  position: relative;
+  overflow: hidden;
+  transition: box-shadow 250ms, transform 250ms, filter 50ms;
+}
+a.nav-link:hover {
+  transform: translate(1px, 1px);
+  box-shadow: 1px 2px 0px black;
+}
+a.nav-link:active {
+  transform: translate(2px, 2px);
+  filter: saturate(0.65);
+}
+a.nav-link::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-color: pink;
+  z-index: -1;
+  transform: translateX(-100%);
+  transition: transform 250ms;
+}
+a.nav-link:hover::after {
+  transform: translateX(0);
+}
+
+.arrowContainer {
+  padding: 0.25em 0.45em;
+  margin: -0.25em 0;
+  border: 2px solid;
+  border-radius: 50%;
+  background-color: pink;
+  position: relative;
+  overflow: hidden;
+  transition: transform 250ms, background-color 250ms;
+  z-index: 100;
+}
+.arrowContainer::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background-color: yellow;
+  transform: translateX(-100%);
+  z-index: -1;
+  transition: transform 250ms ease-in-out;
+}
+
+a.nav-link:hover .arrowContainer::after {
+  transform: translateX(0);
+}
+/* a.nav-link:active .arrowContainer {
+  transform: translateX(8px);
+} */
