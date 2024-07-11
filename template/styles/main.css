@@ -3,7 +3,7 @@ body {
   height: 100vh;
   margin: 0;
   padding: 0;
-  font-family: Verdana, sans-serif;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   display: flex;
   justify-content: center;
 }
@@ -78,22 +78,30 @@ img {
   height: 30px;
 }
 .wrapper > nav {
+  width: 100%;
   display: flex;
   gap: 10px;
   align-items: center;
+  padding: 10px 0;
+}
+
+.wrapper > nav > div {
+  display: flex;
+  gap: 20px;
+  justify-content: right;
+  width: 100%;
 }
 
 .nav-link > img {
   cursor: pointer;
 }
 
-a.nav-link {
+a.nav-link,
+#search {
   display: flex;
   justify-content: space-around;
   align-items: center;
   padding: 0.6em 1em;
-  background-color: yellow;
-  cursor: pointer;
   box-shadow: 2px 4px 0px black;
   border: 2px solid;
   border-radius: 15px;
@@ -101,11 +109,34 @@ a.nav-link {
   overflow: hidden;
   transition: box-shadow 250ms, transform 250ms, filter 50ms;
 }
-a.nav-link:hover {
+
+a.nav-link {
+  background-color: #16c9cc;
+  cursor: pointer;
+  border-color: black;
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+#search {
+  background-image: radial-gradient(
+      circle at center,
+      #ececec 0.1rem,
+      transparent 0
+    ),
+    radial-gradient(circle at center, #ececec 0.1rem, transparent 0);
+  background-size: 0.5rem 0.5rem;
+  background-position: 0 0, 0.3rem 0.75rem;
+}
+
+a.nav-link:hover,
+#search:hover {
   transform: translate(1px, 1px);
   box-shadow: 1px 2px 0px black;
 }
-a.nav-link:active {
+
+a.nav-link:active,
+#search:focus {
   transform: translate(2px, 2px);
   filter: saturate(0.65);
 }
@@ -113,7 +144,7 @@ a.nav-link::after {
   content: '';
   position: absolute;
   inset: 0;
-  background-color: pink;
+  background-color: #f5ee74;
   z-index: -1;
   transform: translateX(-100%);
   transition: transform 250ms;
@@ -127,7 +158,7 @@ a.nav-link:hover::after {
   margin: -0.25em 0;
   border: 2px solid;
   border-radius: 50%;
-  background-color: pink;
+  background-color: #f5ee74;
   position: relative;
   overflow: hidden;
   transition: transform 250ms, background-color 250ms;
@@ -138,7 +169,7 @@ a.nav-link:hover::after {
   position: absolute;
   inset: 0;
   border-radius: inherit;
-  background-color: yellow;
+  background-color: #03aaac;
   transform: translateX(-100%);
   z-index: -1;
   transition: transform 250ms ease-in-out;

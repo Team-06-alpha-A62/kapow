@@ -13,23 +13,24 @@
   <body>
     <div class="wrapper">
       <nav>
-        <span href="#" id="logo" class="nav-link" data-page="home">
-          <img src="./assets/kapow-logo.png" alt="kapow-logo" />
+        <span href="#" id="logo">
+          <img
+            src="./assets/kapow-logo.png"
+            class="nav-link"
+            data-page="home"
+            alt="kapow-logo"
+          />
         </span>
-        <a class="nav-link" data-page="trending"
-            <span>Trending</span>
-        </a>
-        <a class="nav-link" data-page="favorites">
-            <span>Favorites</span>
-        </a>
-        <a class="nav-link" data-page="uploaded">
-            <span>Uploaded</span>
-        </a>
-        <input id="search" type="text" placeholder="Search" />
-        <a class="nav-link" data-page="upload">
+        <div>
+          <a class="nav-link" data-page="trending"> Trending </a>
+          <a class="nav-link" data-page="favorites"> Favorites </a>
+          <a class="nav-link" data-page="uploaded"> Uploaded </a>
+          <input id="search" type="text" placeholder="Search" />
+          <a class="nav-link" data-page="upload">
             <!-- <span>Upload</span> -->
-          <span class="arrowContainer"><i class="fa-solid fa-plus"></i></span>
-        </a>
+            <span class="arrowContainer"><i class="fa-solid fa-plus"></i></span>
+          </a>
+        </div>
       </nav>
       <div id="container"></div>
       <footer>
