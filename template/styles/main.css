@@ -177,7 +177,7 @@ a.nav-link:hover::after {
   transform: translateX(0);
 }
 
-.arrowContainer {
+.iconContainer {
   padding: 0.25em 0.45em;
   margin: -0.25em 0;
   border: 2px solid;
@@ -189,7 +189,7 @@ a.nav-link:hover::after {
   z-index: 100;
 }
 
-.arrowContainer::after {
+.iconContainer::after {
   content: '';
   position: absolute;
   inset: 0;
@@ -200,7 +200,7 @@ a.nav-link:hover::after {
   transition: transform 250ms ease-in-out;
 }
 
-a.nav-link:hover .arrowContainer::after {
+a.nav-link:hover .iconContainer::after {
   transform: translateX(0);
 }
 /* a.nav-link:active .arrowContainer {
@@ -211,4 +211,23 @@ a.nav-link.active {
   background-color: #f5ee74;
   transform: translate(2px, 2px);
   box-shadow: 1px 2px 0px black;
+}
+
+.to-top {
+  position: fixed;
+  bottom: 70px;
+  right: 10px;
+  /* transform: rotate(-90deg); */
+}
+
+.to-top .text {
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+}
+
+.to-top > a.nav-link {
+  display: flex;
+  gap: 20px;
+  flex-direction: column-reverse;
+  padding: 1em 0.6em;
 }
