@@ -18,6 +18,20 @@ document.addEventListener('DOMContentLoaded', () => {
   document.querySelector('#search').addEventListener('input', event => {
     debouncedRenderSearchGifs(event.target.value);
   });
+  document.addEventListener('scroll', function () {
+    let toTopButton = document.querySelector('.to-top');
+    if (window.scrollY > 50) {
+      toTopButton.classList.add('show');
+    } else {
+      toTopButton.classList.remove('show');
+    }
+  });
+  document.querySelector('.to-top').addEventListener('click', function (event) {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth',
+    });
+  });
 
   loadPage(HOME);
 });

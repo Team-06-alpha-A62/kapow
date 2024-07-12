@@ -222,7 +222,18 @@ a.nav-link.active {
   position: fixed;
   bottom: 30px;
   right: 80px;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-20%);
+  transition: opacity 0.5s, visibility 0.5s, transform 0.5s;
+  z-index: 1000;
   /* transform: rotate(-90deg); */
+}
+
+.to-top.show {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
 }
 
 .to-top .text {
