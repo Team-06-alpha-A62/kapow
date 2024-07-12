@@ -11,3 +11,5 @@ export const UPLOAD = 'upload';
 export const EMPTY_HEART = 'fa-regular';
 export const FULL_HEART = 'fa-solid';
 export const CONTAINER_SELECTOR = '#container';
+
+export const DEBOUNCE_LIMIT = 1000;

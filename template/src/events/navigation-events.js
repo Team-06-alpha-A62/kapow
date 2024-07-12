@@ -15,6 +15,9 @@ import { getFavorites } from '../data/favorites.js';
 import { toFavoritesGifsView } from '../views/favorites-view.js';
 import { loadSingleGif } from '../services/request-service.js';
 import { toRandomGifView } from '../views/random-gif-view.js';
+import { toSingleGifView } from '../views/gif-view.js';
+
+let gifs = [];
 
 export const loadPage = (page = '') => {
   switch (page) {
@@ -43,31 +46,43 @@ export const loadPage = (page = '') => {
   }
 };
 
-// export const loadMore = (page) => {
-//   switch (page) {
-//     case TRENDING:
-//       renderMoreTrending();
+export const loadMore = page => {
+  switch (page) {
+    case TRENDING:
+      return renderMoreTrendingGifs();
+  }
+};
 
-//     case FAVORITES:
-//       renderMoreFavorites();
+const renderMoreTrendingGifs = () => {
+  const gifsContainer = document.querySelector('.gifs-container');
+  const numberOfGifsDisplayed = gifsContainer.children.length;
+  console.log(numberOfGifsDisplayed);
+  const gifsBatch = gifs
+    .slice(numberOfGifsDisplayed, numberOfGifsDisplayed + 11)
+    .map(gif => toSingleGifView(gif, gif.user || null))
+    .join('\n');
 
-//     case UPLOADED:
-//       renderMoreUploaded();
+  gifsContainer.innerHTML += gifsBatch;
 
-//     default:
-//       return null;
-//   }
-// };
+  new window.Masonry(CONTAINER_SELECTOR, {
+    itemSelector: '.gif-item',
+    columnWidth: 256,
+    gutter: 10,
+  });
+
+  console.log('10 more');
+};
 
 const renderHome = () => {
   document.querySelector(CONTAINER_SELECTOR).innerHTML = toHomeView();
 };
 
 export const renderTrending = async () => {
-  const trending = await loadTrending();
+  gifs = await loadTrending();
+  const gifsToDisplay = gifs.slice(0, 21);
 
   document.querySelector(CONTAINER_SELECTOR).innerHTML =
-    toTrendingGifsView(trending);
+    toTrendingGifsView(gifsToDisplay);
 
   new window.Masonry(CONTAINER_SELECTOR, {
     itemSelector: '.gif-item',

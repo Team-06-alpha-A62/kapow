@@ -247,3 +247,7 @@ a.nav-link.active {
   flex-direction: column-reverse;
   padding: 1em 0.6em;
 }
+
+.load-more {
+  height: 100px;
+}
