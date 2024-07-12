@@ -215,8 +215,8 @@ a.nav-link.active {
 
 .to-top {
   position: fixed;
-  bottom: 70px;
-  right: 10px;
+  bottom: 30px;
+  right: 30px;
   /* transform: rotate(-90deg); */
 }
 
