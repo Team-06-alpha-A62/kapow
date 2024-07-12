@@ -10,10 +10,11 @@ import {
 import { setActiveNav } from './event-helpers.js';
 import { toHomeView } from '../views/home-view.js';
 import { toTrendingGifsView } from '../views/trending-view.js';
-import { loadTrending } from '../services/request-service.js';
+import { loadRandomGif, loadTrending } from '../services/request-service.js';
 import { getFavorites } from '../data/favorites.js';
 import { toFavoritesGifsView } from '../views/favorites-view.js';
 import { loadSingleGif } from '../services/request-service.js';
+import { toRandomGifView } from '../views/random-gif-view.js';
 
 export const loadPage = (page = '') => {
   switch (page) {
@@ -48,8 +49,6 @@ const renderHome = () => {
 
 export const renderTrending = async () => {
   const trending = await loadTrending();
-  // const users = trending.map(item => item.user || {});
-  // const avatarUrls = users.map(user => user.avatar_url || '');
 
   document.querySelector(CONTAINER_SELECTOR).innerHTML =
     toTrendingGifsView(trending);
@@ -59,8 +58,6 @@ export const renderTrending = async () => {
     columnWidth: 256,
     gutter: 10,
   });
-
-  // document.querySelector(CONTAINER_SELECTOR).innerHTML = toTrendingGifsView(trending);
 };
 
 const renderFavorites = async () => {
@@ -68,12 +65,22 @@ const renderFavorites = async () => {
     getFavorites().map(favorite => loadSingleGif(favorite))
   );
 
-  document.querySelector(CONTAINER_SELECTOR).innerHTML =
-    toFavoritesGifsView(favorites);
+  if (favorites.length === 0) {
+    renderRandomGif();
+  } else {
+    document.querySelector(CONTAINER_SELECTOR).innerHTML =
+      toFavoritesGifsView(favorites);
+  }
 
   new window.Masonry(CONTAINER_SELECTOR, {
     itemSelector: '.gif-item',
     columnWidth: 256,
     gutter: 10,
   });
+};
+
+const renderRandomGif = async () => {
+  const randomGif = await loadRandomGif();
+  document.querySelector(CONTAINER_SELECTOR).innerHTML =
+    toRandomGifView(randomGif);
 };
