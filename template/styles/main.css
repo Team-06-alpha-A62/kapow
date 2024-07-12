@@ -251,3 +251,24 @@ a.nav-link.active {
 .load-more {
   height: 100px;
 }
+
+.actions i {
+  font-size: 1.1rem;
+  padding: 2px;
+  cursor: pointer;
+  transition: transform 250ms ease-in-out;
+}
+
+.actions i:hover {
+  transform: scale(1.1);
+  color: #f5ee74;
+}
+
+.actions i:active {
+  transform: translate(2px, 2px);
+}
+
+.favorite .fa-solid,
+.favorite .fa-solid:hover {
+  color: #db424f;
+}

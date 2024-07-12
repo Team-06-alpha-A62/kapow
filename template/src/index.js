@@ -17,6 +17,11 @@ document.addEventListener('DOMContentLoaded', () => {
     if (event.target.classList.contains('favorite')) {
       toggleFavorite(event.target.getAttribute('data-gif-id'));
     }
+
+    if (event.target.parentElement.classList.contains('copy-link')) {
+      console.log(event.target.parentElement.getAttribute('data-gif-url'));
+      navigator.clipboard.writeText(event.target.getAttribute('data-gif-url'));
+    }
   });
 
   document.querySelector('#search').addEventListener('input', event => {

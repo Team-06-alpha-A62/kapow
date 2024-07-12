@@ -22,7 +22,7 @@ export const toSingleGifView = (gif, user) => {
         <div class="heart-button favorite" data-gif-id="${gif.id}">
           ${renderFavorite(gif.id)}
         </div>
-        <div>
+        <div class="copy-button copy-link" data-gif-url="${gif.url}">
           <i class="fa-solid fa-link"></i>
         </div>
       </div>
