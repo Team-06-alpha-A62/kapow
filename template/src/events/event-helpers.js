@@ -6,3 +6,11 @@ export const setActiveNav = page => {
       : btn.classList.remove('active')
   );
 };
+
+export const debounce = (func, delay) => {
+  let debounceTimer;
+  return function (...args) {
+    clearTimeout(debounceTimer);
+    debounceTimer = setTimeout(() => func.apply(this, args), delay);
+  };
+};
