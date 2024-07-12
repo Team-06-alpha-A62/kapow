@@ -55,7 +55,7 @@ document.addEventListener('DOMContentLoaded', () => {
       document.documentElement.clientHeight + window.scrollY >=
       document.documentElement.scrollHeight - 50
     )
-      debouncedLoadMore(TRENDING);
+    debouncedRenderMore();
   });
 
   document.querySelector('.to-top').addEventListener('click', event => {
