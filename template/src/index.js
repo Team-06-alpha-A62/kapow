@@ -23,11 +23,14 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     if (event.target.parentElement.classList.contains('copy-link')) {
-      console.log(event.target.parentElement.getAttribute('data-gif-url'));
-      navigator.clipboard.writeText(event.target.getAttribute('data-gif-url'));
+      navigator.clipboard.writeText(
+        event.target.parentElement.getAttribute('data-gif-url')
+      );
     }
 
     if (event.target.classList.contains('overlay')) {
+      console.log('ll');
+      console.log(event.target);
       renderGifDetails(event.target.getAttribute('data-gif-id'));
     }
 
@@ -39,7 +42,9 @@ document.addEventListener('DOMContentLoaded', () => {
   document.querySelector('#search').addEventListener('input', event => {
     debouncedRenderSearchGifs(event.target.value);
     const navButtons = [...document.querySelectorAll('.nav-link')];
-    const activeNavButton = navButtons.find(btn => btn.classList.contains('active'));
+    const activeNavButton = navButtons.find(btn =>
+      btn.classList.contains('active')
+    );
     if (activeNavButton) activeNavButton.classList.remove('active');
   });
 
@@ -55,7 +60,7 @@ document.addEventListener('DOMContentLoaded', () => {
       document.documentElement.clientHeight + window.scrollY >=
       document.documentElement.scrollHeight - 50
     )
-    debouncedRenderMore();
+      debouncedRenderMore();
   });
 
   document.querySelector('.to-top').addEventListener('click', event => {

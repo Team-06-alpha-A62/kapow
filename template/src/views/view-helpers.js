@@ -1,3 +1,5 @@
+import { renderFavorite } from '../events/favorites-events.js';
+
 export const toggleHeart = (gifId, type) => `
     <i class="favorite ${type} fa-heart" data-gif-id="${gifId}"></i>`;
 
@@ -10,6 +12,13 @@ export const gifOverlayUserInfo = (gif, user) => {
     </div>`;
   }
   return '';
+};
+
+export const heartFavoriteView = gif => {
+  return `
+  <div class="heart-button favorite" data-gif-id="${gif.id}">
+    ${renderFavorite(gif.id)}
+  </div>`;
 };
 
 export const determineHeight = gif => {
