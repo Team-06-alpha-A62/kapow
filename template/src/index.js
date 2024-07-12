@@ -38,6 +38,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
   document.querySelector('#search').addEventListener('input', event => {
     debouncedRenderSearchGifs(event.target.value);
+    const navButtons = [...document.querySelectorAll('.nav-link')];
+    const activeNavButton = navButtons.find(btn => btn.classList.contains('active'));
+    if (activeNavButton) activeNavButton.classList.remove('active');
   });
 
   document.addEventListener('scroll', () => {
