@@ -1,7 +1,8 @@
-import { HOME, TRENDING, DEBOUNCE_LIMIT } from './common/constants.js';
-import { loadPage, loadMore } from './events/navigation-events.js';
+import { HOME, DEBOUNCE_LIMIT } from './common/constants.js';
+import { loadPage } from './events/navigation-events.js';
+import { renderMore } from './events/render-events.js';
 import { toggleFavorite } from './events/favorites-events.js';
-import { renderSearchGifs } from './events/search-events.js';
+import { renderSearchGifs } from './events/render-events.js';
 import { debounce } from './events/event-helpers.js';
 import {
   renderGifDetails,
@@ -10,7 +11,7 @@ import {
 
 document.addEventListener('DOMContentLoaded', () => {
   const debouncedRenderSearchGifs = debounce(renderSearchGifs, DEBOUNCE_LIMIT);
-  const debouncedLoadMore = debounce(loadMore, DEBOUNCE_LIMIT);
+  const debouncedRenderMore = debounce(renderMore, DEBOUNCE_LIMIT);
 
   document.addEventListener('click', event => {
     if (event.target.classList.contains('nav-link')) {
