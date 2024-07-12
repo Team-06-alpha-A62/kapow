@@ -7,7 +7,54 @@ body {
   display: flex;
   justify-content: center;
 }
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: auto;
+  background-color: rgba(0, 0, 0, 0.4);
+}
 
+.modal.show {
+  display: block;
+}
+
+.modal-content {
+  background-color: #fefefe;
+  margin: 20% auto;
+  padding: 30px;
+  border: 2px solid black;
+  border-radius: 30px;
+  width: 50%;
+}
+
+.modal-gif-content {
+  float: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.modal-gif-information {
+  display: flex;
+}
+
+.modal-gif-img {
+  height: auto;
+  border-radius: 30px;
+  margin-right: 30px;
+}
+
+.close-modal {
+  color: #aaa;
+  font-size: 28px;
+  font-weight: bold;
+  align-self: flex-end;
+}
 .wrapper {
   width: 1054px;
   height: 100vh !important;

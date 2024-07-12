@@ -17,7 +17,7 @@ export const toSingleGifView = (gif, user) => {
   return `
   <div class="gif-item" style="height: ${newHeight}px;">
     <img  src="${gif.images.original.url}" alt="${gif.title}" class="gif-image">
-    <div class="overlay">
+    <div class="overlay" data-gif-id="${gif.id}">
     <div class="actions">
         <div class="heart-button favorite" data-gif-id="${gif.id}">
           ${renderFavorite(gif.id)}

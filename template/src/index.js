@@ -3,13 +3,16 @@ import { loadPage, loadMore } from './events/navigation-events.js';
 import { toggleFavorite } from './events/favorites-events.js';
 import { renderSearchGifs } from './events/search-events.js';
 import { debounce } from './events/event-helpers.js';
+import {
+  renderGifDetails,
+  closeGifDetails,
+} from './events/gif-details-events.js';
 
 document.addEventListener('DOMContentLoaded', () => {
   const debouncedRenderSearchGifs = debounce(renderSearchGifs, DEBOUNCE_LIMIT);
   const debouncedLoadMore = debounce(loadMore, DEBOUNCE_LIMIT);
 
   document.addEventListener('click', event => {
-
     if (event.target.classList.contains('nav-link')) {
       loadPage(event.target.getAttribute('data-page'));
     }
@@ -21,6 +24,14 @@ document.addEventListener('DOMContentLoaded', () => {
     if (event.target.parentElement.classList.contains('copy-link')) {
       console.log(event.target.parentElement.getAttribute('data-gif-url'));
       navigator.clipboard.writeText(event.target.getAttribute('data-gif-url'));
+    }
+
+    if (event.target.classList.contains('overlay')) {
+      renderGifDetails(event.target.getAttribute('data-gif-id'));
+    }
+
+    if (event.target.classList.contains('close-modal')) {
+      closeGifDetails();
     }
   });
 
@@ -39,7 +50,8 @@ document.addEventListener('DOMContentLoaded', () => {
     if (
       document.documentElement.clientHeight + window.scrollY >=
       document.documentElement.scrollHeight - 50
-    ) debouncedLoadMore(TRENDING);
+    )
+      debouncedLoadMore(TRENDING);
   });
 
   document.querySelector('.to-top').addEventListener('click', event => {

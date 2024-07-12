@@ -13,6 +13,7 @@ export const loadTrending = async () => {
 };
 
 export const loadSingleGif = async id => {
+  console.log(id);
   const response = await fetch(
     `https://api.giphy.com/v1/gifs/${id}?api_key=${API_KEY}`
   );
