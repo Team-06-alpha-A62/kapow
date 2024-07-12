@@ -8,7 +8,7 @@ export const gifOverlayUserInfo = (gif, user) => {
     return `
     <div class="account">
         <span class="avatar"><img src=${user.avatar_url || ''}></span>
-        <span class="account-name">${gif.username || 'Unknown User'}</span>
+        <span class="account-name">${user.display_name || gif.username}</span>
     </div>`;
   }
   return '';

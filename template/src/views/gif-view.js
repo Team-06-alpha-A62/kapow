@@ -33,14 +33,18 @@ export const toGifDetailsView = gif => {
   return `
       <div class="modal-gif-content">
         <span class="close-modal">&times;</span>
-        <div class="modal-gif-information">
+        <div class="modal-gif">
+          <div class="modal-img">
             <img class="modal-gif-img" src="${gif.images.original.url}" alt="${
     gif.title
   }"/>
+          </div>
+          <div class="gif-information">
             <h2>${gif.title}</h2>
-            <p>${gif.username}</p>
-            ${heartFavoriteView(gif)}
-        </div>
+            <p>User: ${gif.username}</p>
+          </div>
+          </div>
+          ${heartFavoriteView(gif)}
       </div>
     `;
 };

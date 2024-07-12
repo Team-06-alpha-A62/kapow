@@ -1,5 +1,5 @@
-// const API_KEY = 'FeFboweua5M9OT2rymbqjhh8DVsXxvxJ';
-const API_KEY = 'eb7zm6ySTzlB7D1yeWX7Zu6KJDECrPPM';
+const API_KEY = 'FeFboweua5M9OT2rymbqjhh8DVsXxvxJ';
+//const API_KEY = 'eb7zm6ySTzlB7D1yeWX7Zu6KJDECrPPM';
 /**
  *
  * @return {Promise}
@@ -13,7 +13,6 @@ export const loadTrending = async () => {
 };
 
 export const loadSingleGif = async id => {
-  console.log(id);
   const response = await fetch(
     `https://api.giphy.com/v1/gifs/${id}?api_key=${API_KEY}`
   );

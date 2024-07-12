@@ -10,16 +10,18 @@ import { toggleHeart } from '../views/view-helpers.js';
 
 export const toggleFavorite = gifId => {
   const favorites = getFavorites();
-  const favoriteSpan = document.querySelector(
+  const favoriteSpans = document.querySelectorAll(
     `div.heart-button.favorite[data-gif-id="${gifId}"]`
   );
-
+  console.log(favoriteSpans);
   if (favorites.includes(gifId)) {
     removeFavorite(gifId);
   } else {
     addFavorite(gifId);
   }
-  favoriteSpan.innerHTML = renderFavorite(gifId);
+  favoriteSpans.forEach(span => {
+    span.innerHTML = renderFavorite(gifId);
+  });
 };
 
 export const renderFavorite = gifId => {

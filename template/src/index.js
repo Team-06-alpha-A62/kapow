@@ -19,6 +19,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     if (event.target.classList.contains('favorite')) {
+      console.log(event.target);
       toggleFavorite(event.target.getAttribute('data-gif-id'));
     }
 
@@ -29,8 +30,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     if (event.target.classList.contains('overlay')) {
-      console.log('ll');
-      console.log(event.target);
       renderGifDetails(event.target.getAttribute('data-gif-id'));
     }
 
