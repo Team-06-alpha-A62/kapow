@@ -43,6 +43,22 @@ export const loadPage = (page = '') => {
   }
 };
 
+// export const loadMore = (page) => {
+//   switch (page) {
+//     case TRENDING:
+//       renderMoreTrending();
+
+//     case FAVORITES:
+//       renderMoreFavorites();
+
+//     case UPLOADED:
+//       renderMoreUploaded();
+
+//     default:
+//       return null;
+//   }
+// };
+
 const renderHome = () => {
   document.querySelector(CONTAINER_SELECTOR).innerHTML = toHomeView();
 };

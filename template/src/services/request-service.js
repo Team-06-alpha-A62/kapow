@@ -6,7 +6,7 @@ const API_KEY = 'FeFboweua5M9OT2rymbqjhh8DVsXxvxJ';
  */
 export const loadTrending = async () => {
   const response = await fetch(
-    `https://api.giphy.com/v1/gifs/trending?api_key=${API_KEY}&limit=20`
+    `https://api.giphy.com/v1/gifs/trending?api_key=${API_KEY}`
   );
   const { data } = await response.json();
   return data;
@@ -22,7 +22,7 @@ export const loadSingleGif = async id => {
 
 export const loadSearchGifs = async (searchTerm = '') => {
   const response = await fetch(
-    `https://api.giphy.com/v1/gifs/search?api_key=${API_KEY}&q=${searchTerm}&limit=20`
+    `https://api.giphy.com/v1/gifs/search?api_key=${API_KEY}&q=${searchTerm}`
   );
   const { data } = await response.json();
   return data;
