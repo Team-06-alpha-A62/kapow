@@ -1,12 +1,13 @@
-import { HOME, TRENDING, DEBOUNCE_LIMIT } from './common/constants.js';
-import { loadPage, loadMore } from './events/navigation-events.js';
+import { HOME, DEBOUNCE_LIMIT } from './common/constants.js';
+import { loadPage } from './events/navigation-events.js';
+import { renderMore } from './events/render-events.js'
 import { toggleFavorite } from './events/favorites-events.js';
-import { renderSearchGifs } from './events/search-events.js';
+import { renderSearchGifs } from './events/render-events.js';
 import { debounce } from './events/event-helpers.js';
 
 document.addEventListener('DOMContentLoaded', () => {
   const debouncedRenderSearchGifs = debounce(renderSearchGifs, DEBOUNCE_LIMIT);
-  const debouncedLoadMore = debounce(loadMore, DEBOUNCE_LIMIT);
+  const debouncedRenderMore = debounce(renderMore, DEBOUNCE_LIMIT);
 
   document.addEventListener('click', event => {
 
@@ -39,7 +40,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (
       document.documentElement.clientHeight + window.scrollY >=
       document.documentElement.scrollHeight - 50
-    ) debouncedLoadMore(TRENDING);
+    ) debouncedRenderMore();
   });
 
   document.querySelector('.to-top').addEventListener('click', event => {
