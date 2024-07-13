@@ -1,13 +1,12 @@
 export const toUploadView = () => {
   return `
     <div class="content">
-      <h1>Upload a gif</h1>
-      <form id="uploadForm">
-        <input type="file" id="fileInput" />
-        <button type="submit">Upload</button>
-      </form>
-      <div>
-        <!-- displaying the gif here -->
+    <div class="upload-content">
+    <h1>Upload a GIF, MP4, MOV or WebM</h1>
+        <div>
+          <input type="file" id="fileInput" style="display: none;" />
+          <label for="fileInput" id="fileLabel" class="input-element">Drag & drop | Click to choose file</label>
+        </div>
       </div>
     </div>
     `;
