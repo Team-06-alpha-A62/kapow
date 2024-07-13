@@ -6,6 +6,7 @@ import { getFavorites } from '../data/favorites.js';
 import { toFavoritesGifsView } from '../views/favorites-view.js';
 import { toRandomGifView } from '../views/random-gif-view.js';
 import { toSingleGifView } from '../views/gif-view.js';
+import { toUploadView } from '../views/upload-view.js';
 import {
   loadRandomGif,
   loadTrending,
@@ -90,4 +91,8 @@ const renderRandomGif = async () => {
   const randomGif = await loadRandomGif();
   document.querySelector(CONTAINER_SELECTOR).innerHTML =
     toRandomGifView(randomGif);
+};
+
+export const renderUpload = () => {
+  document.querySelector(CONTAINER_SELECTOR).innerHTML = toUploadView();
 };

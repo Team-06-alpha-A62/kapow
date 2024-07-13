@@ -311,6 +311,10 @@ a.nav-link.active {
   box-shadow: 1px 2px 0px black;
 }
 
+.active .iconContainer {
+  background-color: #03aaac;
+}
+
 .to-top {
   position: fixed;
   bottom: 30px;

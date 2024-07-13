@@ -1,4 +1,4 @@
-import { HOME, DEBOUNCE_LIMIT } from './common/constants.js';
+import { HOME, UPLOAD, DEBOUNCE_LIMIT } from './common/constants.js';
 import { loadPage } from './events/navigation-events.js';
 import { renderMore } from './events/render-events.js';
 import { toggleFavorite } from './events/favorites-events.js';
@@ -8,6 +8,7 @@ import {
   renderGifDetails,
   closeGifDetails,
 } from './events/gif-details-events.js';
+import { uploadGif } from './events/upload-events.js';
 
 document.addEventListener('DOMContentLoaded', () => {
   const debouncedRenderSearchGifs = debounce(renderSearchGifs, DEBOUNCE_LIMIT);
@@ -69,5 +70,23 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  loadPage(HOME);
+  document.addEventListener('submit', async event => {
+    event.preventDefault(); // prevent from reloading the page
+    // add error handling if uploaded file is not a gif
+    const fileInput = document.querySelector('#fileInput').files[0];
+    console.log(fileInput.files); // returns a fileList (arrayLike)
+    if (!fileInput) {
+      console.error('no file selected');
+      return;
+    }
+    // add error handling if there's no file uploaded
+    try {
+      await uploadGif(fileInput);
+      console.log('Gif uploaded Successfully!');
+    } catch (error) {
+      console.error(error);
+    }
+  })
+
+  loadPage(UPLOAD);
 });

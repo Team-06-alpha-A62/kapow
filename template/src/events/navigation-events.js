@@ -13,7 +13,7 @@ import {
   renderTrending,
   renderFavorites,
   // renderUploaded,
-  // renderUpload
+  renderUpload
 } from '../events/render-events.js'
 
 export const loadPage = (page = '') => {
@@ -34,9 +34,9 @@ export const loadPage = (page = '') => {
       // setActiveNav(UPLOADED);
       // return renderUploaded();
 
-    // case UPLOAD:
-      // setActiveNav(UPLOAD);
-      // return renderUpload();
+    case UPLOAD:
+      setActiveNav(UPLOAD);
+      return renderUpload();
 
     default:
       return null;

@@ -35,3 +35,16 @@ export const loadRandomGif = async () => {
   const { data } = await response.json();
   return data;
 };
+
+export const loadUploadGif = async (body) => {
+  try {
+    const response = await fetch(`https://upload.giphy.com/v1/gifs?api_key=${API_KEY}`, {
+      method: 'POST',
+      body,
+    })
+    const { data } = await response.json();
+    return data;
+  } catch (error) {
+    return error.message;
+  }
+}
