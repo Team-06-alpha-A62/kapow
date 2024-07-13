@@ -1,5 +1,5 @@
-const API_KEY = 'FeFboweua5M9OT2rymbqjhh8DVsXxvxJ';
-//const API_KEY = 'eb7zm6ySTzlB7D1yeWX7Zu6KJDECrPPM';
+// const API_KEY = 'FeFboweua5M9OT2rymbqjhh8DVsXxvxJ';
+const API_KEY = 'eb7zm6ySTzlB7D1yeWX7Zu6KJDECrPPM';
 /**
  *
  * @return {Promise}
@@ -36,7 +36,7 @@ export const loadRandomGif = async () => {
   return data;
 };
 
-export const loadUploadGif = async (body) => {
+export const loadUploadGif = async body => {
   try {
     const response = await fetch(`https://upload.giphy.com/v1/gifs?api_key=${API_KEY}`, {
       method: 'POST',

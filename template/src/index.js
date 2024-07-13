@@ -15,8 +15,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const debouncedRenderMore = debounce(renderMore, DEBOUNCE_LIMIT);
 
   document.addEventListener('click', event => {
-    if (event.target.classList.contains('nav-link')) {
-      loadPage(event.target.getAttribute('data-page'));
+    if (event.target.closest('a.nav-link')) {
+      loadPage(event.target.closest('a.nav-link').getAttribute('data-page'));
     }
 
     if (event.target.classList.contains('favorite')) {
