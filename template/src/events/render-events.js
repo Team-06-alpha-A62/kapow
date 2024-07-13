@@ -3,10 +3,12 @@ import { toSearchGifView } from '../views/search-view.js';
 import { toHomeView } from '../views/home-view.js';
 import { toTrendingGifsView } from '../views/trending-view.js';
 import { getFavorites } from '../data/favorites.js';
+import { getUploaded } from '../data/uploaded.js';
 import { toFavoritesGifsView } from '../views/favorites-view.js';
 import { toRandomGifView } from '../views/random-gif-view.js';
 import { toSingleGifView } from '../views/gif-view.js';
 import { toUploadView } from '../views/upload-view.js';
+import { toUploadedGifsView } from '../views/uploaded-view.js';
 import {
   loadRandomGif,
   loadTrending,
@@ -78,6 +80,26 @@ export const renderFavorites = async () => {
     const favoritesToDisplay = gifs.slice(0, INITIAL_DISPLAY_LIMIT + 1);
     document.querySelector(CONTAINER_SELECTOR).innerHTML =
       toFavoritesGifsView(favoritesToDisplay);
+  }
+
+  new window.Masonry(CONTAINER_SELECTOR, {
+    itemSelector: '.gif-item',
+    columnWidth: 256,
+    gutter: 10,
+  });
+};
+
+export const renderUploaded = async () => {
+  gifs = await Promise.all(
+    getUploaded().map(uploadedGif => loadSingleGif(uploadedGif))
+  );
+
+  if (gifs.length === 0) {
+    renderRandomGif();
+  } else {
+    const uploadedGifsToDisplay = gifs.slice(0, INITIAL_DISPLAY_LIMIT + 1);
+    document.querySelector(CONTAINER_SELECTOR).innerHTML =
+      toUploadedGifsView(uploadedGifsToDisplay);
   }
 
   new window.Masonry(CONTAINER_SELECTOR, {

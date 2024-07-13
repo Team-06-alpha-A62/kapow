@@ -1,3 +1,4 @@
+import { addUploaded } from "../data/uploaded.js";
 import { loadUploadGif } from "../services/request-service.js";
 
 export const uploadGif = async file => {
@@ -8,6 +9,7 @@ export const uploadGif = async file => {
     formData.append('file', blob, file.name);
 
     const data = await loadUploadGif(formData);
+    addUploaded(data.id);
     console.log(data.id);
   } catch (error) {
     return error.message;

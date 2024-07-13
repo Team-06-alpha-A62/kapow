@@ -12,7 +12,7 @@ import {
   renderHome,
   renderTrending,
   renderFavorites,
-  // renderUploaded,
+  renderUploaded,
   renderUpload
 } from '../events/render-events.js'
 
@@ -30,9 +30,9 @@ export const loadPage = (page = '') => {
       setActiveNav(FAVORITES);
       return renderFavorites();
 
-    // case UPLOADED:
-      // setActiveNav(UPLOADED);
-      // return renderUploaded();
+    case UPLOADED:
+      setActiveNav(UPLOADED);
+      return renderUploaded();
 
     case UPLOAD:
       setActiveNav(UPLOAD);
