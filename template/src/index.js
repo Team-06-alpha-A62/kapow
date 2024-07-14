@@ -72,12 +72,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
   document.addEventListener('dragover', event => {
     event.preventDefault();
-    document.querySelector('#fileLabel').classList.add('active');
+    document.querySelector('#file-label').classList.add('active');
   });
 
   document.addEventListener('dragleave', event => {
     event.preventDefault();
-    document.querySelector('#fileLabel').classList.remove('active');
+    document.querySelector('#file-label').classList.remove('active');
   });
 
   document.addEventListener('drop', async event => {

@@ -370,7 +370,7 @@ a.nav-link.active {
   color: #db424f;
 }
 
-#fileLabel {
+#file-label {
   height: 200px;
   width: 400px;
   transition: 250ms ease;
