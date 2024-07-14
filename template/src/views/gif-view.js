@@ -18,7 +18,7 @@ export const toSingleGifView = (gif, user) => {
   <div class="gif-item"  style="height:${newHeight}px;">
     <img  src="${gif.images.original.url}" alt="${gif.title}" class="gif-image">
     <div class="overlay" data-gif-id="${gif.id}">
-    <div class="actions">
+      <div class="actions">
         ${heartFavoriteView(gif)}
         <div class="copy-button copy-link" data-gif-url="${gif.url}">
           <i class="fa-solid fa-link"></i>
@@ -44,15 +44,22 @@ export const toGifDetailsView = gif => {
               <h2>${gif.title}</h2>
             </div>
             <div class="information">
-              ${gif.username ? `<h4>User: ${gif.username}</h4>` : ''}
-              <h4>Url: <a href="${gif.url}">click</a></h4>
-              <h4>Imported: ${moment(gif.import_datetime).format(
+              ${gif.username ? `<p>User: ${gif.username}</p>` : ''}
+              <p>Imported: ${moment(gif.import_datetime).format(
                 'MMMM D, YYYY, h:mm:ss A'
-              )}</h4>
+              )}</p>
+            </div>
+            <div class="actions">
+              ${heartFavoriteView(gif)}
+              <div class="copy-button copy-link" data-gif-url="${gif.url}">
+                <i class="fa-solid fa-link"></i>
+              </div>
+              <a href="${gif.url}">
+                <i class="fa-solid fa-arrow-up-right-from-square"></i>
+              </a>
             </div>
           </div>
           </div>
-          ${heartFavoriteView(gif)}
       </div>
     `;
 };
@@ -67,8 +74,10 @@ export const toUploadGifDetailsView = (gif, previewUrl) => {
       </div>
       <div class="gif-information">
         <h2>${gif.name}</h2>
-        <p>Size: ${(gif.size / 1000).toFixed()} KB</p>
-        <p>File Type: ${gif.type}</p>
+        <div class="information">
+          <p>Size: ${(gif.size / 1000).toFixed()} KB</p>
+          <p>File Type: ${gif.type}</p>
+        </div>
         <form>
           <button id="submit" type="submit" class="nav-link">Upload</button>
         </form>

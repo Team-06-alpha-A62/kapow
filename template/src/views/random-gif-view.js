@@ -4,7 +4,7 @@ export const toRandomGifView = gif => {
   return `
      <h1>Nothing to display here... Enjoy this totally random gif instead.</h1>
      <div>
-        <img src="${gif.images.original.url}" alt="${gif.title}" style="width:${width}px; height:${height}px" ">
+        <img src="${gif.images.original.url}" alt="${gif.title}" style="width:${width}px; height:${height}px; border-radius:10px;" ">
      </div>
     </div>
     `;

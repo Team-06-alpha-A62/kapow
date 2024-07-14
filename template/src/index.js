@@ -73,7 +73,7 @@ document.addEventListener('DOMContentLoaded', () => {
       debouncedRenderMore();
   });
 
-  document.querySelector('.to-top').addEventListener('click', event => {
+  document.querySelector('.to-top').addEventListener('click', () => {
     window.scrollTo({
       top: 0,
       behavior: 'smooth',

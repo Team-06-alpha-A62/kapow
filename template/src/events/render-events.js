@@ -42,7 +42,7 @@ export const renderSearchGifs = async searchTerm => {
 
 export const renderMore = () => {
   const gifsContainer = document.querySelector('.gifs-container');
-  const numberOfGifsDisplayed = gifsContainer.children.length;
+  const numberOfGifsDisplayed = gifsContainer?.children?.length;
   const gifsBatch = gifs
     .slice(
       numberOfGifsDisplayed,
@@ -145,11 +145,17 @@ export const renderUpload = () => {
       event.preventDefault();
       document.querySelector('#file-label').classList.remove('active');
       try {
-        const fileInput = event.dataTransfer.items[0].getAsFile();
+        const fileList = event.dataTransfer.files;
+
+        const fileInput = document.querySelector('#file-input');
+        const dataTransfer = new DataTransfer();
+        dataTransfer.items.add(fileList[0]);
+        fileInput.files = dataTransfer.files;
+        const file = fileInput.files[0]
         if (fileInput.length > 1) {
           throw new Error("Can't select more than one file");
         }
-        await handleFile(fileInput);
+        await handleFile(file);
       } catch (error) {
         console.error(`Could not upload file: ${error.message}`);
       }
@@ -160,7 +166,6 @@ export const renderUpload = () => {
     .addEventListener('change', async event => {
       try {
         const fileInput = event.target.files;
-        console.log(fileInput);
         if (fileInput.length > 1) {
           throw new Error("Can't select more than one file");
         }
@@ -172,16 +177,15 @@ export const renderUpload = () => {
 
   document.addEventListener('submit', async event => {
     event.preventDefault();
-    console.log('hi');
     const fileInput = document.querySelector('#file-input').files[0];
     const submitButton = document.querySelector('#submit');
     submitButton.textContent = 'Processing...';
     submitButton.classList.add('processing');
     submitButton.disabled = true;
     try {
-      // await uploadGif(fileInput);
-      // closeGifDetails();
+      await uploadGif(fileInput);
       alert('Gif uploaded Successfully!');
+      closeGifDetails();
     } catch (error) {
       console.error(error);
     }

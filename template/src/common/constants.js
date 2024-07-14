@@ -14,7 +14,7 @@ export const FULL_HEART = 'fa-solid';
 
 export const CONTAINER_SELECTOR = '#container';
 
-export const DEBOUNCE_LIMIT = 300;
+export const DEBOUNCE_LIMIT = 1000;
 
 export const INITIAL_DISPLAY_LIMIT = 20;
 
