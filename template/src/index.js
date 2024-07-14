@@ -37,6 +37,16 @@ document.addEventListener('DOMContentLoaded', () => {
     if (event.target.classList.contains('close-modal')) {
       closeGifDetails();
     }
+
+    if (event.target.classList.contains('modal')) {
+      closeGifDetails();
+    }
+  });
+
+  document.addEventListener('keydown', function (event) {
+    if (event.keyCode === 27) {
+      closeGifDetails();
+    }
   });
 
   document.querySelector('#search').addEventListener('input', event => {
