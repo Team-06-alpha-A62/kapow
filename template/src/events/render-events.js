@@ -21,6 +21,7 @@ import {
   loadSingleGif,
 } from '../services/request-service.js';
 import { handleFile } from './event-helpers.js';
+import { closeGifDetails } from './gif-details-events.js';
 
 let gifs = [];
 
@@ -169,14 +170,22 @@ export const renderUpload = () => {
       }
     });
 
-  document.addEventListener('submit', async () => {
+  document.addEventListener('submit', async event => {
+    event.preventDefault();
     console.log('hi');
     const fileInput = document.querySelector('#file-input').files[0];
+    const submitButton = document.querySelector('#submit');
+    submitButton.textContent = 'Processing...';
+    submitButton.classList.add('processing');
+    submitButton.disabled = true;
     try {
-      await uploadGif(fileInput);
-      console.log('Gif uploaded Successfully!');
+      // await uploadGif(fileInput);
+      // closeGifDetails();
+      alert('Gif uploaded Successfully!');
     } catch (error) {
       console.error(error);
     }
+  }, {
+    once: true
   });
 };

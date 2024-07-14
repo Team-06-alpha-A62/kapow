@@ -233,6 +233,7 @@ img {
 }
 
 a.nav-link,
+button.nav-link,
 .input-element {
   display: flex;
   justify-content: space-around;
@@ -246,7 +247,8 @@ a.nav-link,
   transition: box-shadow 250ms, transform 250ms, filter 50ms;
 }
 
-a.nav-link {
+a.nav-link,
+button.nav-link {
   background-color: #16c9cc;
   cursor: pointer;
   border-color: black;
@@ -272,17 +274,20 @@ a.nav-link {
 }
 
 a.nav-link:hover,
+button.nav-link:hover,
 .input-element:hover {
   transform: translate(1px, 1px);
   box-shadow: 1px 2px 0px black;
 }
 
 a.nav-link:active,
+button.nav-link:active,
 .input-element:focus {
   transform: translate(2px, 2px);
   filter: saturate(0.65);
 }
-a.nav-link::after {
+a.nav-link::after,
+button.nav-link::after {
   content: '';
   position: absolute;
   inset: 0;
@@ -291,7 +296,8 @@ a.nav-link::after {
   transform: translateX(-100%);
   transition: transform 250ms;
 }
-a.nav-link:hover::after {
+a.nav-link:hover::after,
+button.nav-link:hover::after {
   transform: translateX(0);
 }
 
@@ -413,6 +419,17 @@ a.nav-link.active {
   align-items: center;
 }
 
-#submit {
-  width: 80px;
+button.nav-link.processing {
+  background-color: white !important;
+  background-image: radial-gradient(
+      circle at center,
+      #ececec 0.1rem,
+      transparent 0
+    ),
+    radial-gradient(circle at center, #ececec 0.1rem, transparent 0);
+  background-size: 0.5rem 0.5rem;
+  background-position: 0 0, 0.3rem 0.75rem;
+  transform: translate(2px, 2px);
+  box-shadow: 1px 2px 0px black;
+  cursor: default;
 }
