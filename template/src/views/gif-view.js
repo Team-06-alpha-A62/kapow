@@ -40,8 +40,16 @@ export const toGifDetailsView = gif => {
   }"/>
           </div>
           <div class="gif-information">
-            <h2>${gif.title}</h2>
-            <p>User: ${gif.username}</p>
+            <div class="heading">
+              <h2>${gif.title}</h2>
+            </div>
+            <div class="information">
+              ${gif.username ? `<h4>User: ${gif.username}</h4>` : ''}
+              <h4>Url: <a href="${gif.url}">click</a></h4>
+              <h4>Imported: ${moment(gif.import_datetime).format(
+                'MMMM D, YYYY, h:mm:ss A'
+              )}</h4>
+            </div>
           </div>
           </div>
           ${heartFavoriteView(gif)}
