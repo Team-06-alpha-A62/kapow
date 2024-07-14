@@ -24,7 +24,7 @@ document.addEventListener('DOMContentLoaded', () => {
       toggleFavorite(event.target.getAttribute('data-gif-id'));
     }
 
-    if (event.target.parentElement.classList.contains('copy-link')) {
+    if (event.target.classList.contains('fa-link')) {
       navigator.clipboard.writeText(
         event.target.parentElement.getAttribute('data-gif-url')
       );
