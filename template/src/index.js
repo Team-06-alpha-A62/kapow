@@ -70,51 +70,5 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  document.addEventListener('dragover', event => {
-    event.preventDefault();
-    document.querySelector('#file-label').classList.add('active');
-  });
-
-  document.addEventListener('dragleave', event => {
-    event.preventDefault();
-    document.querySelector('#file-label').classList.remove('active');
-  });
-
-  document.addEventListener('drop', async event => {
-    event.preventDefault();
-    const fileInput = event.dataTransfer.items[0].getAsFile();
-    // add error handling if there's no file uploaded
-    try {
-      await uploadGif(fileInput);
-      console.log('Gif uploaded Successfully!');
-    } catch (error) {
-      console.error(error);
-    }
-  });
-
-  // Uncomment after upload modal is implemented
-
-  // document.addEventListener('submit', async event => {
-  //   // add error handling if uploaded file is not a gif
-  //   const fileInput = document.querySelector('#file-input-manual').files[0];
-  //   fileInputManual.addEventListener('change', event => {
-  //     const fileName = event.target.files[0].name;
-  //     console.log(fileName)
-  //     document.querySelector('#file-label-manual').textContent = fileName;
-  //   })
-
-  //   if (!fileInput) {
-  //     console.error('no file selected');
-  //     return;
-  //   }
-  //   // add error handling if there's no file uploaded
-  //   try {
-  //     await uploadGif(fileInput);
-  //     console.log('Gif uploaded Successfully!');
-  //   } catch (error) {
-  //     console.error(error);
-  //   }
-  // });
-
   loadPage(UPLOAD);
 });

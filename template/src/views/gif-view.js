@@ -1,5 +1,5 @@
 import { renderFavorite } from '../events/favorites-events.js';
-import { gifOverlayUserInfo } from './view-helpers.js';
+import { gifOverlayUserInfo, previewUpload } from './view-helpers.js';
 import { determineHeight } from './view-helpers.js';
 import { heartFavoriteView } from './view-helpers.js';
 export const toGifsView = (gifs = []) => {
@@ -47,4 +47,25 @@ export const toGifDetailsView = gif => {
           ${heartFavoriteView(gif)}
       </div>
     `;
+};
+
+export const toUploadGifDetailsView = (gif, previewUrl) => {
+  return `
+  <div class="modal-gif-content">
+    <span class="close-modal">&times;</span>
+    <div class="modal-gif">
+      <div class="modal-img">
+        ${previewUpload(previewUrl)}
+      </div>
+      <div class="gif-information">
+        <h2>${gif.name}</h2>
+        <p>Size: ${(gif.size / 1000).toFixed()} KB</p>
+        <p>File Type: ${gif.type}</p>
+        <form>
+          <button id="submit" type="submit" class="nav-link">Upload</button>
+        </form>
+      </div>
+    </div>
+  </div>
+`;
 };

@@ -30,3 +30,8 @@ export const determineHeight = gif => {
 
   return newHeight;
 };
+
+export const previewUpload = url =>
+  url
+    ? `<img class="modal-gif-img" src="${url}" />`
+    : '<i class="fa-solid fa-video-slash"></i>';

@@ -66,11 +66,18 @@ body {
 }
 
 .modal-img {
+  display: grid;
+  justify-content: center;
+  align-items: center;
   width: 35%;
   height: auto;
   border-right: 3px solid black;
   padding-right: 15px;
   margin-right: 15px;
+}
+
+.modal-img i {
+  font-size: 2rem;
 }
 
 .modal-img > img {
@@ -394,4 +401,8 @@ a.nav-link.active {
   grid-gap: 50px;
   justify-items: center;
   align-items: center;
+}
+
+#submit {
+  width: 80px;
 }
