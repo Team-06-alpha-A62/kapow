@@ -14,18 +14,14 @@
   <body>
     <div class="wrapper">
       <nav>
-        <a href="#" id="logo">
-          <img
-            src="./assets/kapow-logo.png"
-            data-page="home"
-            alt="kapow-logo"
-          />
+        <a href="#" id="logo" class="nav-link" data-page="home">
+          <img src="./assets/kapow-logo.png" alt="kapow-logo" />
         </a>
 
         <div>
-          <a class="nav-link" data-page="trending">Trending</a>
-          <a class="nav-link" data-page="favorites">Favorites</a>
-          <a class="nav-link" data-page="uploaded">Uploaded</a>
+          <a href="#" class="nav-link btn" data-page="trending">Trending</a>
+          <a href="#" class="nav-link btn" data-page="favorites">Favorites</a>
+          <a href="#" class="nav-link btn" data-page="uploaded">Uploaded</a>
           <input
             id="search"
             class="input-element"
@@ -33,7 +29,7 @@
             placeholder="&#xF002; Search"
             style="font-family: Arial, FontAwesome"
           />
-          <a class="nav-link" data-page="upload">
+          <a class="nav-link btn" data-page="upload">
             <span class="iconContainer"><i class="fa-solid fa-plus"></i></span>
           </a>
         </div>
@@ -41,7 +37,7 @@
       <div id="container"></div>
       <div class="load-more"></div>
       <div class="to-top">
-        <a class="nav-link"
+        <a class="nav-link btn"
           ><span class="text">TO TOP</span>
           <span class="iconContainer"><i class="fa-solid fa-arrow-up"></i></span
         ></a>

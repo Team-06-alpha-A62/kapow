@@ -102,7 +102,7 @@ export const toUploadGifDetailsView = (gif, previewUrl) => {
           <p>File Type: ${gif.type}</p>
         </div>
         <form>
-          <button id="submit" type="submit" class="nav-link">Upload</button>
+          <button id="submit" type="submit" class="btn">Upload</button>
         </form>
       </div>
     </div>

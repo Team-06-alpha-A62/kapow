@@ -10,7 +10,7 @@ import {
  * @param {string} page - The current page to be set as active.
  */
 export const setActiveNav = page => {
-  const navButtons = document.querySelectorAll('.nav-link');
+  const navButtons = document.querySelectorAll('.btn');
   [...navButtons].forEach(btn =>
     btn.getAttribute('data-page') === page
       ? btn.classList.add('active')

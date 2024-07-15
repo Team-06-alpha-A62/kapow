@@ -13,6 +13,18 @@ a {
   text-decoration: none;
 }
 
+.home-welcome {
+  text-align: center;
+}
+
+.home-container {
+  padding: 0 100px;
+}
+
+.home-container p {
+  font-size: 20px;
+}
+
 .modal {
   display: none;
   position: fixed;
@@ -238,12 +250,12 @@ img {
   width: 100%;
 }
 
-.nav-link > img {
+.btn > img {
   cursor: pointer;
 }
 
-a.nav-link,
-button.nav-link,
+a.btn,
+button.btn,
 .input-element {
   display: flex;
   justify-content: space-around;
@@ -257,8 +269,8 @@ button.nav-link,
   transition: box-shadow 250ms, transform 250ms, filter 50ms;
 }
 
-a.nav-link,
-button.nav-link {
+a.btn,
+button.btn {
   background-color: #16c9cc;
   cursor: pointer;
   border-color: black;
@@ -283,20 +295,20 @@ button.nav-link {
   padding-left: 5px;
 }
 
-a.nav-link:hover,
-button.nav-link:hover,
+a.btn:hover,
+button.btn:hover,
 .input-element:hover {
   transform: translate(1px, 1px);
   box-shadow: 1px 2px 0px black;
 }
 
-a.nav-link:active,
-button.nav-link:active,
+a.btn:active,
+button.btn:active,
 .input-element:focus {
   transform: translate(2px, 2px);
   filter: saturate(0.65);
 }
-a.nav-link::after {
+a.btn::after {
   content: '';
   position: absolute;
   inset: 0;
@@ -305,8 +317,8 @@ a.nav-link::after {
   transform: translateX(-100%);
   transition: transform 250ms;
 }
-a.nav-link:hover::after,
-button.nav-link:hover::after {
+a.btn:hover::after,
+button.btn:hover::after {
   transform: translateX(0);
 }
 
@@ -333,11 +345,11 @@ button.nav-link:hover::after {
   transition: transform 250ms ease-in-out;
 }
 
-a.nav-link:hover .iconContainer::after {
+a.btn:hover .iconContainer::after {
   transform: translateX(0);
 }
 
-a.nav-link.active {
+a.btn.active {
   background-color: #f5ee74;
   transform: translate(2px, 2px);
   box-shadow: 1px 2px 0px black;
@@ -370,7 +382,7 @@ a.nav-link.active {
   transform: rotate(180deg);
 }
 
-.to-top > a.nav-link {
+.to-top > a.btn {
   display: flex;
   gap: 20px;
   flex-direction: column-reverse;
@@ -397,8 +409,7 @@ a.nav-link.active {
   transform: translate(2px, 2px);
 }
 
-.favorite .fa-solid,
-.favorite .fa-solid:hover {
+.favorite .fa-solid {
   color: #db424f;
 }
 
@@ -428,7 +439,7 @@ a.nav-link.active {
   align-items: center;
 }
 
-button.nav-link.processing {
+button.btn.processing {
   background-color: white !important;
   background-image: radial-gradient(
       circle at center,
@@ -467,9 +478,9 @@ button.nav-link.processing {
   gap: 12px;
 }
 
-.fa-check,
-.fa-exclamation,
-.fa-burst {
+.notification-content > .fa-check,
+.notification-content > .fa-exclamation,
+.notification-content > .fa-burst {
   display: flex;
   align-items: center;
   justify-content: center;
