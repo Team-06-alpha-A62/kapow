@@ -20,7 +20,7 @@ import {
   loadSearchGifs,
   loadSingleGif,
 } from '../services/request-service.js';
-import { handleFile } from './event-helpers.js';
+import { handleFile } from '../helpers/event-helpers.js';
 import { closeGifDetails } from './gif-details-events.js';
 import { renderNotification } from './notification-events.js';
 
@@ -200,7 +200,7 @@ export const renderUpload = () => {
         fileInput.files = dataTransfer.files;
         const file = fileInput.files[0];
         if (fileInput.length > 1) {
-          throw new Error('Can\'t select more than one file');
+          throw new Error("Can't select more than one file");
         }
         await handleFile(file);
       } catch (error) {
@@ -214,7 +214,7 @@ export const renderUpload = () => {
       try {
         const fileInput = event.target.files;
         if (fileInput.length > 1) {
-          throw new Error('Can\'t select more than one file');
+          throw new Error("Can't select more than one file");
         }
         await handleFile(fileInput[0]);
       } catch (error) {

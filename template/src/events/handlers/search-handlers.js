@@ -1,4 +1,4 @@
-import { debounce } from '../event-helpers.js';
+import { debounce } from '../../helpers/event-helpers.js';
 import { renderSearchGifs } from '../render-events.js';
 import { DEBOUNCE_LIMIT } from '../../common/constants.js';
 

@@ -9,7 +9,6 @@ import {
 export const handleDocumentClick = event => {
   const { target } = event;
 
-  console.log(target);
   if (target.closest('a.nav-link')) {
     loadPage(target.closest('a.nav-link').getAttribute('data-page'));
   }

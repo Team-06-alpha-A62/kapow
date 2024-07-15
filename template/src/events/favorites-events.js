@@ -6,7 +6,7 @@ import {
 
 import { FULL_HEART, EMPTY_HEART } from '../common/constants.js';
 import { renderNotification } from './notification-events.js';
-import { toggleHeart } from '../views/view-helpers.js';
+import { toggleHeart } from '../helpers/view-helpers.js';
 
 /**
  * Toggles the favorite status of a GIF and updates the heart icon accordingly.

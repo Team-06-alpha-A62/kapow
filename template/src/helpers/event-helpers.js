@@ -1,4 +1,4 @@
-import { renderUploadGifDetails } from './gif-details-events.js';
+import { renderUploadGifDetails } from '../events/gif-details-events.js';
 import {
   toNotificationSuccessView,
   toNotificationErrorView,

@@ -1,4 +1,4 @@
-import { loadNotification } from './event-helpers.js';
+import { loadNotification } from '../helpers/event-helpers.js';
 
 /**
  * Renders a notification on the screen.
