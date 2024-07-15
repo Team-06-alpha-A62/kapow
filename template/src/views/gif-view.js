@@ -1,7 +1,15 @@
-import { renderFavorite } from '../events/favorites-events.js';
-import { gifOverlayUserInfo, previewUpload } from './view-helpers.js';
-import { determineHeight } from './view-helpers.js';
-import { heartFavoriteView } from './view-helpers.js';
+import {
+  gifOverlayUserInfo,
+  previewUpload,
+  determineHeight,
+  heartFavoriteView,
+} from './view-helpers.js';
+
+/**
+ * Generates an HTML string for displaying a view of multiple GIFs.
+ * @param {Array} gifs - An array of GIF objects to be displayed.
+ * @returns {string} The HTML string for the multiple GIFs view.
+ */
 export const toGifsView = (gifs = []) => {
   return `<div class="gifs-container">
             ${
@@ -12,6 +20,12 @@ export const toGifsView = (gifs = []) => {
           </div>`;
 };
 
+/**
+ * Generates an HTML string for displaying a single GIF.
+ * @param {Object} gif - The GIF object to be displayed.
+ * @param {Object} user - The user object associated with the GIF.
+ * @returns {string} The HTML string for the single GIF view.
+ */
 export const toSingleGifView = (gif, user) => {
   const newHeight = determineHeight(gif);
   return `
@@ -29,6 +43,11 @@ export const toSingleGifView = (gif, user) => {
   </div>`;
 };
 
+/**
+ * Generates an HTML string for displaying the details of a GIF in a modal.
+ * @param {Object} gif - The GIF object whose details are to be displayed.
+ * @returns {string} The HTML string for the GIF details view.
+ */
 export const toGifDetailsView = gif => {
   return `
       <div class="modal-gif-content">
@@ -64,6 +83,10 @@ export const toGifDetailsView = gif => {
     `;
 };
 
+/**
+ * Generates an HTML string for displaying the details of an uploaded GIF in a modal.
+ * @returns {string} The HTML string for the uploaded GIF details view.
+ */
 export const toUploadGifDetailsView = (gif, previewUrl) => {
   return `
   <div class="modal-gif-content">

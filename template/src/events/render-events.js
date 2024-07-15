@@ -25,6 +25,11 @@ import { closeGifDetails } from './gif-details-events.js';
 
 let gifs = [];
 
+/**
+ * Renders the search results view for GIFs based on a search term.
+ * @param {string} searchTerm - The search term used to find GIFs.
+ * @returns {Promise<void>}
+ */
 export const renderSearchGifs = async searchTerm => {
   gifs = await loadSearchGifs(searchTerm);
 
@@ -40,6 +45,9 @@ export const renderSearchGifs = async searchTerm => {
   });
 };
 
+/**
+ * Renders more GIFs in the current view.
+ */
 export const renderMore = () => {
   const gifsContainer = document.querySelector('.gifs-container');
   const numberOfGifsDisplayed = gifsContainer?.children?.length;
@@ -60,10 +68,17 @@ export const renderMore = () => {
   });
 };
 
+/**
+ * Renders the home view.
+ */
 export const renderHome = () => {
   document.querySelector(CONTAINER_SELECTOR).innerHTML = toHomeView();
 };
 
+/**
+ * Renders the trending GIFs view.
+ * @returns {Promise<void>}
+ */
 export const renderTrending = async () => {
   gifs = await loadTrending();
   const trendingGifsToDisplay = gifs.slice(0, INITIAL_DISPLAY_LIMIT + 1);
@@ -79,6 +94,10 @@ export const renderTrending = async () => {
   });
 };
 
+/**
+ * Renders the favorites GIFs view.
+ * @returns {Promise<void>}
+ */
 export const renderFavorites = async () => {
   gifs = await Promise.all(
     getFavorites().map(favorite => loadSingleGif(favorite))
@@ -99,6 +118,10 @@ export const renderFavorites = async () => {
   });
 };
 
+/**
+ * Renders the uploaded GIFs view.
+ * @returns {Promise<void>}
+ */
 export const renderUploaded = async () => {
   gifs = await Promise.all(
     getUploaded().map(uploadedGif => loadSingleGif(uploadedGif))
@@ -120,12 +143,19 @@ export const renderUploaded = async () => {
   });
 };
 
+/**
+ * Renders a random GIF view if no favorites or uploaded GIFs are found.
+ * @returns {Promise<void>}
+ */
 const renderRandomGif = async () => {
   const randomGif = await loadRandomGif();
   document.querySelector(CONTAINER_SELECTOR).innerHTML =
     toRandomGifView(randomGif);
 };
 
+/**
+ * Renders the upload view and sets up event listeners for file upload actions.
+ */
 export const renderUpload = () => {
   document.querySelector(CONTAINER_SELECTOR).innerHTML = toUploadView();
 
@@ -151,7 +181,7 @@ export const renderUpload = () => {
         const dataTransfer = new DataTransfer();
         dataTransfer.items.add(fileList[0]);
         fileInput.files = dataTransfer.files;
-        const file = fileInput.files[0]
+        const file = fileInput.files[0];
         if (fileInput.length > 1) {
           throw new Error("Can't select more than one file");
         }
@@ -175,21 +205,25 @@ export const renderUpload = () => {
       }
     });
 
-  document.addEventListener('submit', async event => {
-    event.preventDefault();
-    const fileInput = document.querySelector('#file-input').files[0];
-    const submitButton = document.querySelector('#submit');
-    submitButton.textContent = 'Processing...';
-    submitButton.classList.add('processing');
-    submitButton.disabled = true;
-    try {
-      await uploadGif(fileInput);
-      alert('Gif uploaded Successfully!');
-      closeGifDetails();
-    } catch (error) {
-      console.error(error);
+  document.addEventListener(
+    'submit',
+    async event => {
+      event.preventDefault();
+      const fileInput = document.querySelector('#file-input').files[0];
+      const submitButton = document.querySelector('#submit');
+      submitButton.textContent = 'Processing...';
+      submitButton.classList.add('processing');
+      submitButton.disabled = true;
+      try {
+        await uploadGif(fileInput);
+        alert('Gif uploaded Successfully!');
+        closeGifDetails();
+      } catch (error) {
+        console.error(error);
+      }
+    },
+    {
+      once: true,
     }
-  }, {
-    once: true
-  });
+  );
 };

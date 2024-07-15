@@ -13,9 +13,14 @@ import {
   renderTrending,
   renderFavorites,
   renderUploaded,
-  renderUpload
-} from '../events/render-events.js'
+  renderUpload,
+} from '../events/render-events.js';
 
+/**
+ * Loads and renders the specified page of the application.
+ * @param {string} [page=''] - The page to be loaded (e.g., HOME, TRENDING, FAVORITES, UPLOADED, UPLOAD).
+ * @returns {void}
+ */
 export const loadPage = (page = '') => {
   switch (page) {
     case HOME:
