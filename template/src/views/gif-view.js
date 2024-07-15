@@ -13,10 +13,10 @@ import {
 export const toGifsView = (gifs = []) => {
   return `<div class="gifs-container">
             ${
-              gifs
-                .map(gif => toSingleGifView(gif, gif.user || null))
-                .join('\n') || 'empty array of gifs'
-            }
+  gifs
+    .map(gif => toSingleGifView(gif, gif.user || null))
+    .join('\n') || 'empty array of gifs'
+}
           </div>`;
 };
 
@@ -55,8 +55,8 @@ export const toGifDetailsView = gif => {
         <div class="modal-gif">
           <div class="modal-img">
             <img class="modal-gif-img" src="${gif.images.original.url}" alt="${
-    gif.title
-  }"/>
+  gif.title
+}"/>
           </div>
           <div class="gif-information">
             <div class="heading">
@@ -65,8 +65,8 @@ export const toGifDetailsView = gif => {
             <div class="information">
               ${gif.username ? `<p>User: ${gif.username}</p>` : ''}
               <p>Imported: ${moment(gif.import_datetime).format(
-                'MMMM D, YYYY, h:mm:ss A'
-              )}</p>
+    'MMMM D, YYYY, h:mm:ss A'
+  )}</p>
             </div>
             <div class="actions">
               ${heartFavoriteView(gif)}

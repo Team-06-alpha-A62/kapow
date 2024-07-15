@@ -1,4 +1,9 @@
 import { renderUploadGifDetails } from './gif-details-events.js';
+import {
+  toNotificationSuccessView,
+  toNotificationErrorView,
+  toNotificationNoteView,
+} from '../views/notification-view.js';
 
 /**
  * Sets the active navigation button based on the current page.
@@ -61,4 +66,15 @@ export const handleFile = async file => {
   }
   const previewUrl = file.type === 'image/gif' ? await getDataURL(file) : null;
   await renderUploadGifDetails(file, previewUrl);
+};
+
+export const loadNotification = (type, message) => {
+  switch (type) {
+    case 'note':
+      return toNotificationNoteView(message);
+    case 'success':
+      return toNotificationSuccessView(message);
+    case 'error':
+      return toNotificationErrorView(message);
+  }
 };

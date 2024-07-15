@@ -9,6 +9,11 @@ import {
   closeGifDetails,
 } from './events/gif-details-events.js';
 
+import {
+  closeNotification,
+  renderNotification,
+} from './events/notification-events.js';
+
 document.addEventListener('DOMContentLoaded', () => {
   // Debounced versions of functions to limit the rate at which they are called
   const debouncedRenderSearchGifs = debounce(renderSearchGifs, DEBOUNCE_LIMIT);
@@ -29,11 +34,16 @@ document.addEventListener('DOMContentLoaded', () => {
       toggleFavorite(event.target.getAttribute('data-gif-id'));
     }
 
+    if (event.target.classList.contains('close-notification')) {
+      closeNotification();
+    }
+
     // Copy GIF URL to clipboard
     if (event.target.classList.contains('fa-link')) {
       navigator.clipboard.writeText(
         event.target.parentElement.getAttribute('data-gif-url')
       );
+      renderNotification('note', 'Gif URL coppied successfully.');
     }
 
     // Render GIF details in a modal
@@ -82,7 +92,7 @@ document.addEventListener('DOMContentLoaded', () => {
    * when the user reaches the bottom of the page.
    */
   document.addEventListener('scroll', () => {
-    let toTopButton = document.querySelector('.to-top');
+    const toTopButton = document.querySelector('.to-top');
     if (window.scrollY > 50) {
       toTopButton.classList.add('show');
     } else {

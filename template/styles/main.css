@@ -296,8 +296,7 @@ button.nav-link:active,
   transform: translate(2px, 2px);
   filter: saturate(0.65);
 }
-a.nav-link::after,
-button.nav-link::after {
+a.nav-link::after {
   content: '';
   position: absolute;
   inset: 0;
@@ -442,4 +441,74 @@ button.nav-link.processing {
   transform: translate(2px, 2px);
   box-shadow: 1px 2px 0px black;
   cursor: default;
+}
+
+.notification {
+  z-index: 10000;
+  position: fixed;
+  background: #fff;
+  top: 25px;
+  right: 35px;
+  border-radius: 10px;
+  padding: 20px 35px 20px 25px;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+
+  transform: translateX(calc(100% + 35px));
+  transition: all 0.25s ease-in-out;
+}
+
+.notification.active {
+  transform: translateX(0%);
+}
+
+.notification > .notification-content {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.fa-check,
+.fa-exclamation,
+.fa-burst {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 30px;
+  width: 30px;
+  background-color: #03aaac;
+  color: #fff;
+  font-size: 15px;
+  border-radius: 50%;
+}
+
+.fa-burst {
+  background-color: #db424f;
+}
+
+.notification-message {
+  display: flex;
+  flex-direction: column;
+}
+
+.notification-message > .text {
+  font-size: 20px;
+  font-weight: 400;
+  color: #666666;
+}
+.notification-message > .text-1 {
+  font-weight: 600;
+  color: #333;
+}
+
+.notification-content > .close-notification {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  padding: 5px;
+  cursor: pointer;
+  opacity: 0.7;
+}
+
+.notification-content > .close-notification:hover {
+  opacity: 1;
 }

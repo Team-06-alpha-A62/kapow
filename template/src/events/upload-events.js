@@ -1,5 +1,6 @@
 import { addUploaded } from '../data/uploaded.js';
 import { loadUploadGif } from '../services/request-service.js';
+import { renderNotification } from './notification-events.js';
 
 /**
  * Uploads a GIF file to the Giphy API and adds the uploaded GIF's ID to the uploaded data.
@@ -15,6 +16,7 @@ export const uploadGif = async file => {
 
     const data = await loadUploadGif(formData);
     addUploaded(data.id);
+    renderNotification('success', 'Gif uploaded successfully.');
   } catch (error) {
     return error.message;
   }

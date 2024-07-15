@@ -5,7 +5,7 @@ import {
 } from '../data/favorites.js';
 
 import { FULL_HEART, EMPTY_HEART } from '../common/constants.js';
-
+import { renderNotification } from './notification-events.js';
 import { toggleHeart } from '../views/view-helpers.js';
 
 /**
@@ -20,8 +20,10 @@ export const toggleFavorite = gifId => {
 
   if (favorites.includes(gifId)) {
     removeFavorite(gifId);
+    renderNotification('note', 'You have removed gif from favorites.');
   } else {
     addFavorite(gifId);
+    renderNotification('note', 'You have added gif to favorites.');
   }
   favoriteSpans.forEach(span => {
     span.innerHTML = renderFavorite(gifId);

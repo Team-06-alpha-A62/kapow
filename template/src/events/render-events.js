@@ -22,6 +22,7 @@ import {
 } from '../services/request-service.js';
 import { handleFile } from './event-helpers.js';
 import { closeGifDetails } from './gif-details-events.js';
+import { renderNotification } from './notification-events.js';
 
 let gifs = [];
 
@@ -80,18 +81,22 @@ export const renderHome = () => {
  * @returns {Promise<void>}
  */
 export const renderTrending = async () => {
-  gifs = await loadTrending();
-  const trendingGifsToDisplay = gifs.slice(0, INITIAL_DISPLAY_LIMIT + 1);
+  try {
+    gifs = await loadTrending();
+    const trendingGifsToDisplay = gifs.slice(0, INITIAL_DISPLAY_LIMIT + 1);
 
-  document.querySelector(CONTAINER_SELECTOR).innerHTML = toTrendingGifsView(
-    trendingGifsToDisplay
-  );
+    document.querySelector(CONTAINER_SELECTOR).innerHTML = toTrendingGifsView(
+      trendingGifsToDisplay
+    );
 
-  new window.Masonry(CONTAINER_SELECTOR, {
-    itemSelector: '.gif-item',
-    columnWidth: 256,
-    gutter: 10,
-  });
+    new window.Masonry(CONTAINER_SELECTOR, {
+      itemSelector: '.gif-item',
+      columnWidth: 256,
+      gutter: 10,
+    });
+  } catch (error) {
+    renderNotification('error', error.message);
+  }
 };
 
 /**
@@ -99,23 +104,27 @@ export const renderTrending = async () => {
  * @returns {Promise<void>}
  */
 export const renderFavorites = async () => {
-  gifs = await Promise.all(
-    getFavorites().map(favorite => loadSingleGif(favorite))
-  );
+  try {
+    gifs = await Promise.all(
+      getFavorites().map(favorite => loadSingleGif(favorite))
+    );
 
-  if (gifs.length === 0) {
-    renderRandomGif();
-  } else {
-    const favoritesToDisplay = gifs.slice(0, INITIAL_DISPLAY_LIMIT + 1);
-    document.querySelector(CONTAINER_SELECTOR).innerHTML =
-      toFavoritesGifsView(favoritesToDisplay);
+    if (gifs.length === 0) {
+      renderRandomGif();
+    } else {
+      const favoritesToDisplay = gifs.slice(0, INITIAL_DISPLAY_LIMIT + 1);
+      document.querySelector(CONTAINER_SELECTOR).innerHTML =
+        toFavoritesGifsView(favoritesToDisplay);
+    }
+
+    new window.Masonry(CONTAINER_SELECTOR, {
+      itemSelector: '.gif-item',
+      columnWidth: 256,
+      gutter: 10,
+    });
+  } catch (error) {
+    renderNotification('error', error.message);
   }
-
-  new window.Masonry(CONTAINER_SELECTOR, {
-    itemSelector: '.gif-item',
-    columnWidth: 256,
-    gutter: 10,
-  });
 };
 
 /**
@@ -123,24 +132,28 @@ export const renderFavorites = async () => {
  * @returns {Promise<void>}
  */
 export const renderUploaded = async () => {
-  gifs = await Promise.all(
-    getUploaded().map(uploadedGif => loadSingleGif(uploadedGif))
-  );
-
-  if (gifs.length === 0) {
-    renderRandomGif();
-  } else {
-    const uploadedGifsToDisplay = gifs.slice(0, INITIAL_DISPLAY_LIMIT + 1);
-    document.querySelector(CONTAINER_SELECTOR).innerHTML = toUploadedGifsView(
-      uploadedGifsToDisplay
+  try {
+    gifs = await Promise.all(
+      getUploaded().map(uploadedGif => loadSingleGif(uploadedGif))
     );
-  }
 
-  new window.Masonry(CONTAINER_SELECTOR, {
-    itemSelector: '.gif-item',
-    columnWidth: 256,
-    gutter: 10,
-  });
+    if (gifs.length === 0) {
+      renderRandomGif();
+    } else {
+      const uploadedGifsToDisplay = gifs.slice(0, INITIAL_DISPLAY_LIMIT + 1);
+      document.querySelector(CONTAINER_SELECTOR).innerHTML = toUploadedGifsView(
+        uploadedGifsToDisplay
+      );
+    }
+
+    new window.Masonry(CONTAINER_SELECTOR, {
+      itemSelector: '.gif-item',
+      columnWidth: 256,
+      gutter: 10,
+    });
+  } catch (error) {
+    renderNotification('error', error.message);
+  }
 };
 
 /**
@@ -148,9 +161,13 @@ export const renderUploaded = async () => {
  * @returns {Promise<void>}
  */
 const renderRandomGif = async () => {
-  const randomGif = await loadRandomGif();
-  document.querySelector(CONTAINER_SELECTOR).innerHTML =
-    toRandomGifView(randomGif);
+  try {
+    const randomGif = await loadRandomGif();
+    document.querySelector(CONTAINER_SELECTOR).innerHTML =
+      toRandomGifView(randomGif);
+  } catch (error) {
+    renderNotification('error', error.message);
+  }
 };
 
 /**
@@ -172,9 +189,9 @@ export const renderUpload = () => {
   document
     .querySelector('#file-label')
     .addEventListener('drop', async event => {
-      event.preventDefault();
-      document.querySelector('#file-label').classList.remove('active');
       try {
+        event.preventDefault();
+        document.querySelector('#file-label').classList.remove('active');
         const fileList = event.dataTransfer.files;
 
         const fileInput = document.querySelector('#file-input');
@@ -187,7 +204,7 @@ export const renderUpload = () => {
         }
         await handleFile(file);
       } catch (error) {
-        console.error(`Could not upload file: ${error.message}`);
+        renderNotification('error', error.message);
       }
     });
 
@@ -201,25 +218,24 @@ export const renderUpload = () => {
         }
         await handleFile(fileInput[0]);
       } catch (error) {
-        console.error(`Could not upload file: ${error.message}`);
+        renderNotification('error', error.message);
       }
     });
 
   document.addEventListener(
     'submit',
     async event => {
-      event.preventDefault();
-      const fileInput = document.querySelector('#file-input').files[0];
-      const submitButton = document.querySelector('#submit');
-      submitButton.textContent = 'Processing...';
-      submitButton.classList.add('processing');
-      submitButton.disabled = true;
       try {
+        event.preventDefault();
+        const fileInput = document.querySelector('#file-input').files[0];
+        const submitButton = document.querySelector('#submit');
+        submitButton.textContent = 'Processing...';
+        submitButton.classList.add('processing');
+        submitButton.disabled = true;
         await uploadGif(fileInput);
-        alert('Gif uploaded Successfully!');
         closeGifDetails();
       } catch (error) {
-        console.error(error);
+        renderNotification('error', error.message);
       }
     },
     {

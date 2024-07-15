@@ -1,16 +1,20 @@
-const API_KEY = 'FeFboweua5M9OT2rymbqjhh8DVsXxvxJ';
-//const API_KEY = 'eb7zm6ySTzlB7D1yeWX7Zu6KJDECrPPM';
+//const API_KEY = 'FeFboweua5M9OT2rymbqjhh8DVsXxvxJ';
+const API_KEY = 'eb7zm6ySTzlB7D1yeWX7Zu6KJDECrPPM';
 
 /**
  * Fetches trending GIFs from the Giphy API.
  * @returns {Promise<Array>} A promise that resolves to an array of trending GIF objects.
  */
 export const loadTrending = async () => {
-  const response = await fetch(
-    `https://api.giphy.com/v1/gifs/trending?api_key=${API_KEY}`
-  );
-  const { data } = await response.json();
-  return data;
+  try {
+    const response = await fetch(
+      `https://api.giphy.com/v1/gifs/trending?api_key=${API_KEY}`
+    );
+    const { data } = await response.json();
+    return data;
+  } catch (error) {
+    throw new Error('Could not load gifs.');
+  }
 };
 
 /**
@@ -19,11 +23,15 @@ export const loadTrending = async () => {
  * @returns {Promise<Object>} A promise that resolves to a GIF object.
  */
 export const loadSingleGif = async id => {
-  const response = await fetch(
-    `https://api.giphy.com/v1/gifs/${id}?api_key=${API_KEY}`
-  );
-  const { data } = await response.json();
-  return data;
+  try {
+    const response = await fetch(
+      `https://api.giphy.com/v1/gifs/${id}?api_key=${API_KEY}`
+    );
+    const { data } = await response.json();
+    return data;
+  } catch (error) {
+    throw new Error('Could not load gif.');
+  }
 };
 
 /**
@@ -32,11 +40,15 @@ export const loadSingleGif = async id => {
  * @returns {Promise<Array>} A promise that resolves to an array of GIF objects matching the search term.
  */
 export const loadSearchGifs = async (searchTerm = '') => {
-  const response = await fetch(
-    `https://api.giphy.com/v1/gifs/search?api_key=${API_KEY}&q=${searchTerm}`
-  );
-  const { data } = await response.json();
-  return data;
+  try {
+    const response = await fetch(
+      `https://api.giphy.com/v1/gifs/search?api_key=${API_KEY}&q=${searchTerm}`
+    );
+    const { data } = await response.json();
+    return data;
+  } catch (error) {
+    throw new Error('Could not load gifs.');
+  }
 };
 
 /**
@@ -44,11 +56,15 @@ export const loadSearchGifs = async (searchTerm = '') => {
  * @returns {Promise<Object>} A promise that resolves to a random GIF object.
  */
 export const loadRandomGif = async () => {
-  const response = await fetch(
-    `https://api.giphy.com/v1/gifs/random?api_key=${API_KEY}`
-  );
-  const { data } = await response.json();
-  return data;
+  try {
+    const response = await fetch(
+      `https://api.giphy.com/v1/gifs/random?api_key=${API_KEY}`
+    );
+    const { data } = await response.json();
+    return data;
+  } catch (error) {
+    throw new Error('Could not load random gif.');
+  }
 };
 
 /**
@@ -68,6 +84,6 @@ export const loadUploadGif = async body => {
     const { data } = await response.json();
     return data;
   } catch (error) {
-    return error.message;
+    throw new Error('Selected file could not be uploaded.');
   }
 };
