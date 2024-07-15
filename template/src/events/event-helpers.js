@@ -70,13 +70,13 @@ export const handleFile = async file => {
 
 export const loadNotification = (type, message) => {
   switch (type) {
-  case 'note':
-    return toNotificationNoteView(message);
-  case 'success':
-    return toNotificationSuccessView(message);
-  case 'error':
-    return toNotificationErrorView(message);
-  default:
-    throw new Error('Type is not recognized.');
+    case 'note':
+      return toNotificationNoteView(message);
+    case 'success':
+      return toNotificationSuccessView(message);
+    case 'error':
+      return toNotificationErrorView(message);
+    default:
+      throw new Error('Type is not recognized.');
   }
 };

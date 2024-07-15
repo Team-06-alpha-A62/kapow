@@ -35,7 +35,7 @@ export const toSingleGifView = (gif, user) => {
       <div class="actions">
         ${heartFavoriteView(gif)}
         <div class="copy-button copy-link" data-gif-url="${gif.url}">
-          <i class="fa-solid fa-link"></i>
+          <i class="fa-solid fa-link" ></i>
         </div>
       </div>
       ${gifOverlayUserInfo(gif, user)}
