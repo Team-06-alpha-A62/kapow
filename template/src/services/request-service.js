@@ -1,5 +1,5 @@
-//const API_KEY = 'FeFboweua5M9OT2rymbqjhh8DVsXxvxJ';
-const API_KEY = 'eb7zm6ySTzlB7D1yeWX7Zu6KJDECrPPM';
+const API_KEY = 'FeFboweua5M9OT2rymbqjhh8DVsXxvxJ';
+// const API_KEY = 'eb7zm6ySTzlB7D1yeWX7Zu6KJDECrPPM';
 
 /**
  * Fetches trending GIFs from the Giphy API.

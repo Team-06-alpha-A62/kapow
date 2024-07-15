@@ -9,6 +9,7 @@ import {
 export const handleDocumentClick = event => {
   const { target } = event;
 
+  console.log(target);
   if (target.closest('a.nav-link')) {
     loadPage(target.closest('a.nav-link').getAttribute('data-page'));
   }
@@ -39,7 +40,7 @@ export const handleDocumentClick = event => {
     closeGifDetails();
   }
 
-  if (target.classList.contains('to-top')) {
+  if (target.closest('.to-top')) {
     window.scrollTo({
       top: 0,
       behavior: 'smooth',
