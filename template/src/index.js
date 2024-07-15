@@ -1,4 +1,4 @@
-import { HOME, UPLOAD, DEBOUNCE_LIMIT } from './common/constants.js';
+import { HOME, DEBOUNCE_LIMIT } from './common/constants.js';
 import { loadPage } from './events/navigation-events.js';
 import { renderMore } from './events/render-events.js';
 import { toggleFavorite } from './events/favorites-events.js';

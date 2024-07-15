@@ -12,7 +12,7 @@ export const loadTrending = async () => {
     );
     const { data } = await response.json();
     return data;
-  } catch (error) {
+  } catch {
     throw new Error('Could not load gifs.');
   }
 };
@@ -29,7 +29,7 @@ export const loadSingleGif = async id => {
     );
     const { data } = await response.json();
     return data;
-  } catch (error) {
+  } catch {
     throw new Error('Could not load gif.');
   }
 };
@@ -46,7 +46,7 @@ export const loadSearchGifs = async (searchTerm = '') => {
     );
     const { data } = await response.json();
     return data;
-  } catch (error) {
+  } catch {
     throw new Error('Could not load gifs.');
   }
 };
@@ -62,7 +62,7 @@ export const loadRandomGif = async () => {
     );
     const { data } = await response.json();
     return data;
-  } catch (error) {
+  } catch {
     throw new Error('Could not load random gif.');
   }
 };
@@ -83,7 +83,7 @@ export const loadUploadGif = async body => {
     );
     const { data } = await response.json();
     return data;
-  } catch (error) {
+  } catch {
     throw new Error('Selected file could not be uploaded.');
   }
 };

@@ -1,4 +1,4 @@
-import { toGifsView, toSingleGifView } from './gif-view.js';
+import { toGifsView } from './gif-view.js';
 
 /**
  * Generates an HTML string for displaying a view of GIF search results.
