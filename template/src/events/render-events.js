@@ -23,6 +23,7 @@ import {
 import { handleFile } from '../helpers/event-helpers.js';
 import { closeGifDetails } from './gif-details-events.js';
 import { renderNotification } from './notification-events.js';
+import { initializeMasonry } from '../helpers/event-helpers.js';
 
 let gifs = [];
 
@@ -39,11 +40,7 @@ export const renderSearchGifs = async searchTerm => {
     searchGifsToDisplay,
     searchTerm
   );
-  new window.Masonry(CONTAINER_SELECTOR, {
-    itemSelector: '.gif-item',
-    columnWidth: 256,
-    gutter: 10,
-  });
+  initializeMasonry(CONTAINER_SELECTOR);
 };
 
 /**
@@ -62,11 +59,7 @@ export const renderMore = () => {
 
   gifsContainer.innerHTML += gifsBatch;
 
-  new window.Masonry(CONTAINER_SELECTOR, {
-    itemSelector: '.gif-item',
-    columnWidth: 256,
-    gutter: 10,
-  });
+  initializeMasonry(CONTAINER_SELECTOR);
 };
 
 /**
@@ -89,11 +82,7 @@ export const renderTrending = async () => {
       trendingGifsToDisplay
     );
 
-    new window.Masonry(CONTAINER_SELECTOR, {
-      itemSelector: '.gif-item',
-      columnWidth: 256,
-      gutter: 10,
-    });
+    initializeMasonry(CONTAINER_SELECTOR);
   } catch (error) {
     renderNotification('error', error.message);
   }
@@ -117,11 +106,7 @@ export const renderFavorites = async () => {
         toFavoritesGifsView(favoritesToDisplay);
     }
 
-    new window.Masonry(CONTAINER_SELECTOR, {
-      itemSelector: '.gif-item',
-      columnWidth: 256,
-      gutter: 10,
-    });
+    initializeMasonry(CONTAINER_SELECTOR);
   } catch (error) {
     renderNotification('error', error.message);
   }
@@ -146,11 +131,7 @@ export const renderUploaded = async () => {
       );
     }
 
-    new window.Masonry(CONTAINER_SELECTOR, {
-      itemSelector: '.gif-item',
-      columnWidth: 256,
-      gutter: 10,
-    });
+    initializeMasonry(CONTAINER_SELECTOR);
   } catch (error) {
     renderNotification('error', error.message);
   }

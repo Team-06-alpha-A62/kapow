@@ -1,6 +1,7 @@
 import { debounce } from '../../helpers/event-helpers.js';
 import { renderMore } from '../render-events.js';
 import { DEBOUNCE_LIMIT } from '../../common/constants.js';
+import { PX_TO_TRIGGER_TOTOP_BUTTON, PX_TO_TRIGGER_LOAD_MORE} from '../../common/constants.js';
 
 const debouncedRenderMore = debounce(renderMore, DEBOUNCE_LIMIT);
 
@@ -13,7 +14,7 @@ const debouncedRenderMore = debounce(renderMore, DEBOUNCE_LIMIT);
 export const handleDocumentScroll = () => {
   const toTopButton = document.querySelector('.to-top');
 
-  if (window.scrollY > 50) {
+  if (window.scrollY > PX_TO_TRIGGER_TOTOP_BUTTON) {
     toTopButton.classList.add('show');
   } else {
     toTopButton.classList.remove('show');
@@ -21,7 +22,7 @@ export const handleDocumentScroll = () => {
 
   if (
     document.documentElement.clientHeight + window.scrollY >=
-    document.documentElement.scrollHeight - 50
+    document.documentElement.scrollHeight - PX_TO_TRIGGER_LOAD_MORE
   ) {
     debouncedRenderMore();
   }

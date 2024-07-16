@@ -1,4 +1,5 @@
 import { renderFavorite } from '../events/favorites-events.js';
+import { GIF_WIFTH } from '../common/constants.js';
 
 /**
  * Generates an HTML string for a heart icon, indicating whether a GIF is a favorite.
@@ -50,7 +51,7 @@ export const determineHeight = gif => {
   const height = parseInt(gif.images.original.height, 10);
 
   const aspectRatio = height / width;
-  const newHeight = Math.round(256 * aspectRatio);
+  const newHeight = Math.round(GIF_WIFTH * aspectRatio);
 
   return newHeight;
 };

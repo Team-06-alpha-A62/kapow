@@ -5,6 +5,8 @@ import {
   toNotificationNoteView,
 } from '../views/notification-view.js';
 
+
+import { MASONRY_COLUMN_WIDTH,MASONRY_GUTTER } from '../common/constants.js';
 /**
  * Sets the active navigation button based on the current page.
  * @param {string} page - The current page to be set as active.
@@ -87,4 +89,20 @@ export const loadNotification = (type, message) => {
   default:
     throw new Error('Type is not recognized.');
   }
+};
+
+
+/**
+ * Initializes Masonry layout on a given container.
+ * @param {string} containerSelector - The CSS selector of the container.
+ * @param {string} itemSelector - The CSS selector of the grid items.
+ * @param {number} columnWidth - The width of the columns.
+ * @param {number} gutter - The size of the gutter.
+ */
+export const initializeMasonry = (containerSelector, itemSelector = '.gif-item', columnWidth = MASONRY_COLUMN_WIDTH, gutter = MASONRY_GUTTER) => {
+  new window.Masonry(containerSelector, {
+    itemSelector,
+    columnWidth,
+    gutter,
+  });
 };
