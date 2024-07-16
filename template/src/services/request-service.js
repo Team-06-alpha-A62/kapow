@@ -1,4 +1,5 @@
-import { API_KEY, BASE_URL, UPLOAD_URL } from '../common/apiConfig.js';
+import { API_KEY } from '../common/apiConfig.js';
+import { BASE_URL, UPLOAD_URL } from '../common/constants.js'
 import { fetchData } from '../helpers/fetch-data-helpers.js';
 
 /**

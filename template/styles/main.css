@@ -511,7 +511,7 @@ button.btn.processing {
 }
 
 .fa-burst {
-  background-color: var(--red);
+  background-color: var(--red) !important;
 }
 
 .notification-message {
