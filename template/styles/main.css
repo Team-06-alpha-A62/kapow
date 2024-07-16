@@ -114,17 +114,13 @@ a {
 
 @media (max-width: 1650px) {
   .modal-content {
-    width: 60%;
-  }
-  .modal-gif {
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    max-width: 50%;
   }
   .modal-gif > .gif-information,
   .modal-img {
     display: block;
-    width: 60%;
+    max-width: 80%;
+    max-height: 80%;
     margin-right: 0;
     border: none;
   }
