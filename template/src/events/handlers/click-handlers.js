@@ -6,6 +6,13 @@ import {
   renderNotification,
 } from '../notification-events.js';
 
+/**
+ * Handles the document click event, performing various actions based on the target element.
+ *
+ * @function handleDocumentClick
+ * @param {MouseEvent} event - The click event triggered by the document.
+ * @returns {void}
+ */
 export const handleDocumentClick = event => {
   const { target } = event;
 

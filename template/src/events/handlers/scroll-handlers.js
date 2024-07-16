@@ -4,6 +4,12 @@ import { DEBOUNCE_LIMIT } from '../../common/constants.js';
 
 const debouncedRenderMore = debounce(renderMore, DEBOUNCE_LIMIT);
 
+/**
+ * Handles the document scroll event, showing or hiding the "to-top" button and triggering the debounced renderMore function when nearing the bottom of the page.
+ *
+ * @function handleDocumentScroll
+ * @returns {void}
+ */
 export const handleDocumentScroll = () => {
   const toTopButton = document.querySelector('.to-top');
 

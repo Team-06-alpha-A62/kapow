@@ -5,6 +5,12 @@ import { handleDocumentKeyUp } from './events/handlers/key-up-handlers.js';
 import { handleSearchInput } from './events/handlers/search-handlers.js';
 import { handleDocumentScroll } from './events/handlers/scroll-handlers.js';
 
+/**
+ * Initializes event listeners and loads the home page when the DOM content is fully loaded.
+ *
+ * @function
+ * @returns {void}
+ */
 document.addEventListener('DOMContentLoaded', () => {
   document.addEventListener('click', handleDocumentClick);
   document.addEventListener('keyup', handleDocumentKeyUp);
