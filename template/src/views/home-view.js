@@ -12,7 +12,7 @@ export const toHomeView = () => {
       <p>We've poured endless hours into enduring pointless gifs, all so you can enjoy the full app experience, not just the free trial!</p>
       <img src="./assets/giphy_enjoy.gif" alt="leonardo approve" style="height: 300px; width: 800px; border-radius: 10px" />
       <p>You're welcome!</p>
-      <p>From the 06 team,<br>Maikul & Nikola</p>
+      <p>From team OG,<br>Maikul & Nikola</p>
       </div>
     </div>
   `;

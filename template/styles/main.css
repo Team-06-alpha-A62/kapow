@@ -1,3 +1,15 @@
+:root {
+  --light-background: #fff;
+  --light-base: #03aaac;
+  --light-base-lighter: #16c9cc;
+  --light-active: #f5ee74;
+  --light-grey: #ececec;
+  --light-text: black;
+  --red: #db424f;
+  --dark-background: #1b2932;
+  --dark-grey: #303c43;
+}
+
 body {
   width: 100%;
   height: 100vh;
@@ -9,7 +21,7 @@ body {
 }
 
 a {
-  color: black;
+  color: var(--light-text);
   text-decoration: none;
 }
 
@@ -49,7 +61,7 @@ a {
   height: auto;
   padding: 10px 20px 42px 20px;
   border-radius: 8px;
-  background: white;
+  background: var(--light-background);
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 1);
   transform: scale(0.7);
   opacity: 0;
@@ -97,7 +109,7 @@ a {
   align-items: center;
   width: 35%;
   height: auto;
-  border-right: 3px solid black;
+  border-right: 3px solid var(--dark-background);
   padding-right: 15px;
   margin-right: 15px;
 }
@@ -135,7 +147,7 @@ a {
 
 .close-modal:hover {
   transform: scale(1.1);
-  color: #03aaac;
+  color: var(--light-base);
 }
 .wrapper {
   width: 1054px;
@@ -179,7 +191,7 @@ img {
   right: 0;
   bottom: 0;
   background: rgba(0, 0, 0, 0.5);
-  color: white;
+  color: var(--light-background);
   opacity: 0;
   transition: opacity 0.3s;
   display: flex;
@@ -231,7 +243,7 @@ img {
   position: fixed;
   z-index: 1000;
   width: 1054px;
-  background-color: white;
+  background-color: var(--light-background);
   display: flex;
   gap: 10px;
   align-items: center;
@@ -257,7 +269,7 @@ button.btn,
   justify-content: space-around;
   align-items: center;
   padding: 0.6em 1em;
-  box-shadow: 2px 4px 0px black;
+  box-shadow: 2px 4px 0px var(--dark-background);
   border: 2px solid;
   border-radius: 15px;
   position: relative;
@@ -267,9 +279,9 @@ button.btn,
 
 a.btn,
 button.btn {
-  background-color: #16c9cc;
+  background-color: var(--light-base-lighter);
   cursor: pointer;
-  border-color: black;
+  border-color: var(--dark-background);
   font-size: 1.1rem;
   font-weight: 600;
 }
@@ -277,10 +289,10 @@ button.btn {
 .input-element {
   background-image: radial-gradient(
       circle at center,
-      #ececec 0.1rem,
+      var(--light-grey) 0.1rem,
       transparent 0
     ),
-    radial-gradient(circle at center, #ececec 0.1rem, transparent 0);
+    radial-gradient(circle at center, var(--light-grey) 0.1rem, transparent 0);
   background-size: 0.5rem 0.5rem;
   background-position: 0 0, 0.3rem 0.75rem;
   width: 250px;
@@ -295,7 +307,7 @@ a.btn:hover,
 button.btn:hover,
 .input-element:hover {
   transform: translate(1px, 1px);
-  box-shadow: 1px 2px 0px black;
+  box-shadow: 1px 2px 0px var(--dark-background);
 }
 
 a.btn:active,
@@ -308,7 +320,7 @@ a.btn::after {
   content: '';
   position: absolute;
   inset: 0;
-  background-color: #f5ee74;
+  background-color: var(--light-base-lighter);
   z-index: -1;
   transform: translateX(-100%);
   transition: transform 250ms;
@@ -323,7 +335,7 @@ button.btn:hover::after {
   margin: -0.25em 0;
   border: 2px solid;
   border-radius: 50%;
-  background-color: #f5ee74;
+  background-color: var(--light-active);
   position: relative;
   overflow: hidden;
   transition: transform 250ms, background-color 250ms;
@@ -335,7 +347,7 @@ button.btn:hover::after {
   position: absolute;
   inset: 0;
   border-radius: inherit;
-  background-color: #03aaac;
+  background-color: var(--light-active);
   transform: translateX(-100%);
   z-index: -1;
   transition: transform 250ms ease-in-out;
@@ -346,13 +358,13 @@ a.btn:hover .iconContainer::after {
 }
 
 a.btn.active {
-  background-color: #f5ee74;
+  background-color: var(--light-active);
   transform: translate(2px, 2px);
-  box-shadow: 1px 2px 0px black;
+  box-shadow: 1px 2px 0px var(--dark-background);
 }
 
 .active .iconContainer {
-  background-color: #03aaac;
+  background-color: var(--light-base-lighter);
 }
 
 .to-top {
@@ -404,7 +416,7 @@ a.btn.active {
 
 .actions i:hover {
   transform: scale(1.1);
-  color: #03aaac;
+  color: var(--light-base);
 }
 
 .actions i:active {
@@ -425,12 +437,16 @@ a.btn.active {
 .active {
   background-image: radial-gradient(
       circle at center,
-      #0fb7ba 0.1rem,
+      var(--light-base-lighter) 0.1rem,
       transparent 0
     ),
-    radial-gradient(circle at center, #0fb7ba 0.1rem, transparent 0);
-  background-color: #03aaac;
-  box-shadow: 3px 6px 0px black;
+    radial-gradient(
+      circle at center,
+      var(--light-base-lighter) 0.1rem,
+      transparent 0
+    );
+  background-color: var(--light-base);
+  box-shadow: 3px 6px 0px var(--dark-background);
   transform: translate(-2px, -2px);
 }
 
@@ -442,24 +458,24 @@ a.btn.active {
 }
 
 button.btn.processing {
-  background-color: white !important;
+  background-color: var(--light-background) !important;
   background-image: radial-gradient(
       circle at center,
-      #ececec 0.1rem,
+      var(--light-grey) 0.1rem,
       transparent 0
     ),
-    radial-gradient(circle at center, #ececec 0.1rem, transparent 0);
+    radial-gradient(circle at center, var(--light-grey) 0.1rem, transparent 0);
   background-size: 0.5rem 0.5rem;
   background-position: 0 0, 0.3rem 0.75rem;
   transform: translate(2px, 2px);
-  box-shadow: 1px 2px 0px black;
+  box-shadow: 1px 2px 0px var(--dark-background);
   cursor: default;
 }
 
 .notification {
   z-index: 10000;
   position: fixed;
-  background: #fff;
+  background: var(--light-background);
   top: 25px;
   right: 35px;
   border-radius: 10px;
@@ -488,14 +504,14 @@ button.btn.processing {
   justify-content: center;
   height: 30px;
   width: 30px;
-  background-color: #03aaac;
-  color: #fff;
+  background-color: var(--light-base);
+  color: var(--light-background);
   font-size: 15px;
   border-radius: 50%;
 }
 
 .fa-burst {
-  background-color: #db424f;
+  background-color: var(--red);
 }
 
 .notification-message {

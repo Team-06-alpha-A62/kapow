@@ -68,6 +68,14 @@ export const handleFile = async file => {
   await renderUploadGifDetails(file, previewUrl);
 };
 
+/**
+ * Loads a notification view based on the specified type and message.
+ *
+ * @param {string} type - The type of the notification. Valid values are 'note', 'success', and 'error'.
+ * @param {string} message - The message to be displayed in the notification.
+ * @returns {HTMLElement} The notification view element.
+ * @throws {Error} Throws an error if the type is not recognized.
+ */
 export const loadNotification = (type, message) => {
   switch (type) {
     case 'note':
