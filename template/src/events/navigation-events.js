@@ -23,27 +23,27 @@ import {
  */
 export const loadPage = (page = '') => {
   switch (page) {
-    case HOME:
-      setActiveNav(HOME);
-      return renderHome();
+  case HOME:
+    setActiveNav(HOME);
+    return renderHome();
 
-    case TRENDING:
-      setActiveNav(TRENDING);
-      return renderTrending();
+  case TRENDING:
+    setActiveNav(TRENDING);
+    return renderTrending();
 
-    case FAVORITES:
-      setActiveNav(FAVORITES);
-      return renderFavorites();
+  case FAVORITES:
+    setActiveNav(FAVORITES);
+    return renderFavorites();
 
-    case UPLOADED:
-      setActiveNav(UPLOADED);
-      return renderUploaded();
+  case UPLOADED:
+    setActiveNav(UPLOADED);
+    return renderUploaded();
 
-    case UPLOAD:
-      setActiveNav(UPLOAD);
-      return renderUpload();
+  case UPLOAD:
+    setActiveNav(UPLOAD);
+    return renderUpload();
 
-    default:
-      return null;
+  default:
+    return null;
   }
 };
