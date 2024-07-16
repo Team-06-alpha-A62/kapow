@@ -2,19 +2,18 @@
 
 ## Project Title
 
-Your Project Title
+**Kapow! gifs**
 
 ## Description
 
-A brief description of what your project does and its features.
+A small website about gifs using Giphy API to display trending gifs, search by terms, save to favorites and upload to Giphy directly
 
 ## Prerequisites
 
 Before you begin, ensure you have met the following requirements:
 
-- You have installed the latest version of [Node.js](https://nodejs.org/en/download/)
+- You have installed [Node.js](https://nodejs.org/en/download/), preferably the latest stable version
 - You have a Git client installed on your local machine
-- You have a text editor or IDE of your choice (e.g., VS Code)
 
 ## Installation
 
@@ -25,7 +24,7 @@ To view and run this application locally, please follow these steps:
    Open your terminal and run the following command to clone the repository:
 
    ```bash
-   git clone https://github.com/yourusername/your-repo-name.git
+   git clone https://github.com/Team-06-alpha-A62/kapow.git
    ```
 
 2. **Navigate to the Project Directory**
@@ -33,7 +32,7 @@ To view and run this application locally, please follow these steps:
    Change your directory to the project folder:
 
    ```bash
-   cd your-repo-name/template
+   cd ./template
    ```
 
 3. **Install Dependencies**
@@ -46,7 +45,7 @@ To view and run this application locally, please follow these steps:
 
 4. **Create `apiConfig.js`**
 
-   Inside the `src/common` directory, create a new file called `apiConfig.js`:
+   Inside the `src/common` directory, create a new file called `apiConfig.js`, or through your terminal,assuming that you're inside the template directory, you can paste this code:
 
    ```bash
    touch src/common/apiConfig.js
@@ -54,10 +53,10 @@ To view and run this application locally, please follow these steps:
 
 5. **Add Your API Key**
 
-   Open `apiConfig.js` in your text editor and add your API key in the following format:
+   Copy your existing key, or create a new one [from here](https://developers.giphy.com/dashboard/?create=true). Open `apiConfig.js` in your text editor and add your API key in the following format:
 
    ```javascript
-   export const API_KEY = 'FeFboweua5M9OT2rymbqjhh8DVsXxvxJ';
+   export const API_KEY = 'api_as_string';
    ```
 
 6. **Open `index.html` with Live Server**
@@ -66,8 +65,4 @@ To view and run this application locally, please follow these steps:
 
 ## Usage
 
-After completing the above steps, you should be able to view and interact with the application in your browser.
-
-## Contributing
-
-To contribute to this project, please follow the standard GitHub flow: fork the repository, create a new branch, commit your changes, and create a pull request.
+After completing the above steps, you should be able to view and interact with the application in your browser. Enjoy!
