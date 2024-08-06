@@ -9,7 +9,7 @@ export const fetchData = async (url, options = {}) => {
     const response = await fetch(url, options);
     if (!response.ok) {
       const errorData = await response.json();
-      throw new Error(`Error ${response.status}: ${errorData.message}`);
+      throw new Error(`Error ${response.status}`);
     }
     const { data } = await response.json();
     return data;
