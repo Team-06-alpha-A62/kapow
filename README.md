@@ -1,21 +1,52 @@
-# README.md
+## Table of Contents
 
-## Project Title
+- [Overview](#description)
+- [Key Features](#key-features)
+- [Setup Instructions](#setup-instructions)
 
-**Kapow! gifs**
+<!-- End of Section -->
 
 ## Description
 
 A small website about gifs using Giphy API to display trending gifs, search by terms, save to favorites and upload to Giphy directly
 
-## Prerequisites
+### [Live demo](https://kapow.nikola-nenovski.info)
+
+<!-- End of Section -->
+
+## Key Features
+
+- **Optimized GIF Search**  
+  Find GIFs by keywords with an optimized debounce search, reducing unnecessary API calls.
+
+- **Trending GIFs**  
+  Discover popular GIFs at a glance with the Trending section, allowing you to stay up-to-date with what's popular.
+  ![Trending GIFs](https://nikola-nenovski.info/kapow/kapow-trending.gif)  
+
+- **Favorite GIFs**  
+  Save your favorite GIFs for quick access, making it easy to revisit and share them later.
+  ![Save GIFs](https://nikola-nenovski.info/kapow/kapow-favourites.gif)  
+
+- **GIF Upload with Drag & Drop**  
+  Upload GIFs from your device using a drag-and-drop interface with a preview, making it user-friendly and convenient.
+  ![Upload GIFs](https://nikola-nenovski.info/kapow/kapow-upload.gif)  
+
+- **Responsive Masonry Grid Layout**  
+  Display GIFs in a responsive, Pinterest-like masonry grid layout powered by the Masonry library, creating a visually pleasing browsing experience.
+
+- **Toast Notifications**  
+  Get real-time feedback with toast notifications for actions such as saving favorites, uploading GIFs, and more.
+
+<!-- End of Section -->
+
+## Setup Instructions
 
 Before you begin, ensure you have met the following requirements:
 
 - You have installed [Node.js](https://nodejs.org/en/download/), preferably the latest stable version
 - You have a Git client installed on your local machine
 
-## Installation
+### Installation
 
 To view and run this application locally, please follow these steps:
 
@@ -63,6 +94,6 @@ To view and run this application locally, please follow these steps:
 
    To view the application, open `index.html` with Live Server. If you're using VS Code, you can install the Live Server extension. Right-click on `index.html` and select `Open with Live Server`.
 
-## Usage
+### Usage
 
 After completing the above steps, you should be able to view and interact with the application in your browser. Enjoy!
