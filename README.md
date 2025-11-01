@@ -21,15 +21,15 @@ A small website about gifs using Giphy API to display trending gifs, search by t
 
 - **Trending GIFs**  
   Discover popular GIFs at a glance with the Trending section, allowing you to stay up-to-date with what's popular.
-  ![Trending GIFs](https://nikola-nenovski.info/kapow/kapow-trending.gif)  
+  ![Trending GIFs](https://nikola-nenovski.com/kapow/kapow-trending.gif)  
 
 - **Favorite GIFs**  
   Save your favorite GIFs for quick access, making it easy to revisit and share them later.
-  ![Save GIFs](https://nikola-nenovski.info/kapow/kapow-favourites.gif)  
+  ![Save GIFs](https://nikola-nenovski.com/kapow/kapow-favourites.gif)  
 
 - **GIF Upload with Drag & Drop**  
   Upload GIFs from your device using a drag-and-drop interface with a preview, making it user-friendly and convenient.
-  ![Upload GIFs](https://nikola-nenovski.info/kapow/kapow-upload.gif)  
+  ![Upload GIFs](https://nikola-nenovski.com/kapow/kapow-upload.gif)  
 
 - **Responsive Masonry Grid Layout**  
   Display GIFs in a responsive, Pinterest-like masonry grid layout powered by the Masonry library, creating a visually pleasing browsing experience.
